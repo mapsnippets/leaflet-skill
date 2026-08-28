@@ -2,7 +2,7 @@
 
 > Official **Leaflet** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Cline).
 
-Maintained by **[MapSnippets](https://labs.maptiler.com/mapsnippets/)**.
+Maintained by **[MapSnippets](https://mapsnippets.com/)**.
 
 ---
 
@@ -66,4 +66,4 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_M
 ---
 
 ## 📄 License
-MIT © [MapSnippets](https://labs.maptiler.com/mapsnippets/)
+MIT © [MapSnippets](https://mapsnippets.com/)
