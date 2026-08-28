@@ -76,6 +76,7 @@ Follow these rules on every Leaflet code generation to prevent bugs:
 
 Read these reference files on demand for deep implementation patterns:
 
+- [references/installation-and-cdn.md](references/installation-and-cdn.md) — CDN script tags with SRI hashes, npm/yarn/bun installs, and offline bundles.
 - [references/vector-tiles-and-plugins.md](references/vector-tiles-and-plugins.md) — Vector tiles via `@maplibre/maplibre-gl-leaflet` & `Leaflet.VectorGrid`.
 - [references/geojson-and-markers.md](references/geojson-and-markers.md) — `L.geoJSON`, `pointToLayer`, custom `L.divIcon`, `bindPopup`, `bindTooltip`, choropleths.
 - [references/marker-clustering.md](references/marker-clustering.md) — `leaflet.markercluster`, spiderfy, custom cluster icons, bulk data performance.
