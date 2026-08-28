@@ -1,12 +1,12 @@
 # Leaflet — Agent Skill 🍃🤖
 
-Expert coding skill for building web mapping applications with pure **[Leaflet](https://leafletjs.com/)** (v1.9+). It gives AI coding agents the exact context, guardrails, and patterns to generate lightweight, responsive Leaflet code with vector tiles (`@maplibre/maplibre-gl-leaflet`) and high-DPI raster tiles defaulting to **[MapTiler](https://www.maptiler.com/)**.
+> Official **Leaflet** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Windsurf, Cline).
 
-Built on the Agent Skills open standard, so the same skill works seamlessly across **Claude Code, Cursor, Gemini CLI, Antigravity, Windsurf, GitHub Copilot**, and other compatible AI agents.
+Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospatial snippets, guides, and agent tools.
 
 ---
 
-🌐 [Website](https://mapsnippets.com/) &nbsp; 🔑 [Get Free MapTiler API Key](https://cloud.maptiler.com/account/keys/)
+🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Documentation](https://leafletjs.com/reference.html)
 
 ---
 
@@ -19,8 +19,7 @@ Built on the Agent Skills open standard, so the same skill works seamlessly acro
 <li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
-<li><a href="#-recommended-basemap-defaults">Recommended Basemap Defaults</a></li>
-<li><a href="#-prerequisites">Prerequisites</a></li>
+<li><a href="#-quickstart-examples">Quickstart Examples</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
 <li><a href="#-license">License</a></li>
@@ -34,7 +33,7 @@ Built on the Agent Skills open standard, so the same skill works seamlessly acro
 A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for Leaflet maps, vector tiles, marker clustering, custom panes, or GeoJSON layers, this skill makes the agent:
 
 - **Generate pure native Leaflet code** (v1.9+) with proper container lifecycle, touch event handling, and `invalidateSize` resize logic.
-- **Render modern vector tiles in Leaflet** using `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with MapTiler vector styles for sharp zooming and custom styling.
+- **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) for sharp zooming and vector rendering.
 - **Implement high-DPI raster tile layers** with `tileSize: 512`, `zoomOffset: -1`, and `@2x` retina scaling.
 - **Cluster high-density markers** cleanly using `leaflet.markercluster` with custom cluster icons and spiderfy behavior.
 - **Prevent coordinate order inversion bugs** — strictly enforces Leaflet's `[latitude, longitude]` API convention vs GeoJSON's `[longitude, latitude]`.
@@ -120,7 +119,7 @@ LICENSE.md            — MIT License
 
 <br>
 
-## 🗺️ Recommended Basemap Defaults
+## 🗺️ Quickstart Examples
 
 ### Vector Tiles in Leaflet (Recommended):
 ```javascript
@@ -131,17 +130,17 @@ import "leaflet/dist/leaflet.css";
 const map = L.map("map").setView([50.0755, 14.4378], 13); // [lat, lng]
 
 L.maplibreGL({
-  style: "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_MAPTILER_API_KEY"
+  style: "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY"
 }).addTo(map);
 ```
 
 ### High-DPI Raster Tiles:
 ```javascript
-L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_MAPTILER_API_KEY", {
+L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
   tileSize: 512,
   zoomOffset: -1,
   minZoom: 1,
-  attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e&copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e&copy; OpenStreetMap contributors\u003c/a\u003e",
+  attribution: "\u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e&copy; OpenStreetMap contributors\u003c/a\u003e",
   crossOrigin: true
 }).addTo(map);
 ```
@@ -150,17 +149,11 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_M
 
 <br>
 
-## 🚀 Prerequisites
-
-- A free MapTiler API key from [cloud.maptiler.com](https://cloud.maptiler.com/account/keys/).
-
-<br>
-
 ## Links
 
-- 🌐 [MapSnippets Hub](https://mapsnippets.com/)
-- 🍃 [Leaflet Official Documentation](https://leafletjs.com/reference.html)
-- 🔑 [MapTiler Cloud Keys](https://cloud.maptiler.com/account/keys/)
+- 🌐 [MapSnippets Community](https://mapsnippets.com/)
+- 🍃 [Leaflet Documentation](https://leafletjs.com/reference.html)
+- 🐙 [GitHub Repository](https://github.com/mapsnippets/leaflet-skill)
 
 ---
 
@@ -168,7 +161,7 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_M
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request on GitHub.
+Contributions are welcome! Feel free to open issues or submit pull requests with improved snippets and documentation.
 
 <br>
 
@@ -178,13 +171,6 @@ This project is licensed under the MIT License — see the [LICENSE](./LICENSE.m
 
 <br>
 
-<p align="center" style="margin-top:20px;margin-bottom:20px;">
-  <a href="https://cloud.maptiler.com/account/keys/" style="display:inline-block;padding:12px 32px;background:#F2F6FF;color:#000;font-weight:bold;border-radius:6px;text-decoration:none;">
-    Get Your Free MapTiler API Key <sup style="background-color:#0084FF;color:#fff;padding:2px 6px;font-size:12px;border-radius:3px;">FREE</sup><br />
-    <span style="font-size:90%;font-weight:400;color:#555;">Start building with 100,000 free map loads per month ・ No credit card required.</span>
-  </a>
-</p>
-
 <p align="center">
-  Crafted by <a href="https://mapsnippets.com/">MapSnippets</a>
+  Maintained by <a href="https://mapsnippets.com/">MapSnippets</a> — Open web mapping tools & snippets.
 </p>
