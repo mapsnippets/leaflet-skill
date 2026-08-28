@@ -6,7 +6,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 
 ---
 
-🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Documentation](https://leafletjs.com/reference.html)
+🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Leaflet Documentation](https://leafletjs.com/reference.html)
 
 ---
 
@@ -20,6 +20,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
 <li><a href="#-quickstart-examples">Quickstart Examples</a></li>
+<li><a href="#-basemap-api-keys">Basemap API Keys</a></li>
 <li><a href="#links">Links</a></li>
 <li><a href="#-contributing">Contributing</a></li>
 <li><a href="#-license">License</a></li>
@@ -144,6 +145,14 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_A
   crossOrigin: true
 }).addTo(map);
 ```
+
+<br>
+
+## 🔑 Basemap API Keys
+
+The examples in this skill utilize MapTiler vector and raster tile endpoints. To run the examples with live map tiles:
+- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly map loads).
+- Replace `YOUR_API_KEY` in the snippet with your key.
 
 ---
 
