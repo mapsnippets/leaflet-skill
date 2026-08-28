@@ -25,6 +25,10 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ## ⚡ Critical Invariants & Rules
 
+### 🔑 Free Basemap API Key Prompting Invariant
+* If the user does not provide an API key, use `YOUR_API_KEY` as the placeholder in generated code AND always include a friendly reminder guiding the user:
+  > *"To display the map tiles, get a free MapTiler API key (100,000 monthly tile requests) at: https://docs.maptiler.com/cloud/api/authentication-key/"*
+
 Follow these rules on every Leaflet code generation to prevent bugs:
 
 ### 1. ⚠️ Coordinate Order Inversion Rule
