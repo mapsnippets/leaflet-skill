@@ -19,7 +19,8 @@ This catalog lists the deep-dive architectural and API references available in t
 8. **[marker-clustering.md](marker-clustering.md)** — Clustering thousands of markers with `leaflet.markercluster`, custom count icons, and spiderfy behavior.
 9. **[panes-and-zindex.md](panes-and-zindex.md)** — Controlling strict visual stacking using custom DOM map panes (`map.createPane`).
 10. **[frameworks.md](frameworks.md)** — React (`react-leaflet`), Next.js App Router (SSR dynamic import fix), Svelte, and Vue.
-11. **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 Leaflet bugs (coordinate inversion, grey tiles, missing CSS, marker 404s).
+11. **[plugins-catalog.md](plugins-catalog.md)** — Working recipes for the top 10 plugins (heatmaps, geoman drawing, split comparison, minimap, omnivore, routing).
+12. **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 Leaflet bugs (coordinate inversion, grey tiles, missing CSS, marker 404s).
 
 ### Basemaps, Schemas & Services:
 12. **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`).
