@@ -16,6 +16,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 <summary><b>Table of Contents</b></summary>
 <ul>
 <li><a href="#what-it-does">What it does</a></li>
+<li><a href="#getting-started-cdn--npm">Getting Started (CDN & NPM)</a></li>
 <li><a href="#how-skills-plugins-and-agents-fit-together">How skills, plugins, and agents fit together</a></li>
 <li><a href="#-installation">Installation</a></li>
 <li><a href="#-repository-layout">Repository layout</a></li>
@@ -28,6 +29,25 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 </details>
 
 <br>
+
+
+## 🚀 Getting Started (CDN & NPM)
+
+### Option 1: Modern NPM / Bundler (Vite, Webpack, Next.js)
+```bash
+npm install leaflet
+npm install -D @types/leaflet
+```
+```javascript
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+```
+
+### Option 2: Vanilla HTML (Official CDN with SRI)
+```html
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+```
 
 ## What it does
 
