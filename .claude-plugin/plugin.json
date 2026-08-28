@@ -1,0 +1,21 @@
+{
+  "name": "leaflet-skill",
+  "version": "1.0.0",
+  "description": "Official Leaflet AI Agent Skill by MapSnippets. Comprehensive instructions, vector tile plugins, raster layers, and geospatial patterns for AI coding assistants.",
+  "author": {
+    "name": "MapSnippets",
+    "url": "https://labs.maptiler.com/mapsnippets/"
+  },
+  "homepage": "https://labs.maptiler.com/mapsnippets/",
+  "license": "MIT",
+  "keywords": [
+    "leaflet",
+    "maps",
+    "vector-tiles",
+    "maplibre-gl-leaflet",
+    "geospatial",
+    "markers",
+    "geojson",
+    "maptiler"
+  ]
+}
