@@ -2,11 +2,11 @@
 
 > Official **Leaflet** skill for AI coding assistants (Cursor, Claude Code, Antigravity, GitHub Copilot, Windsurf, Cline).
 
-Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospatial snippets, guides, and agent tools.
+Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
 ---
 
-🌐 [Website](https://mapsnippets.com/) &nbsp; 📚 [Leaflet Documentation](https://leafletjs.com/reference.html)
+🌐 [Website](https://mapsnippets.org/) &nbsp; 📚 [Leaflet Documentation](https://leafletjs.com/reference.html)
 
 ---
 
@@ -160,7 +160,7 @@ The examples in this skill utilize MapTiler vector and raster tile endpoints. To
 
 ## Links
 
-- 🌐 [MapSnippets Community](https://mapsnippets.com/)
+- 🌐 [MapSnippets Community](https://mapsnippets.org/)
 - 🍃 [Leaflet Documentation](https://leafletjs.com/reference.html)
 - 🐙 [GitHub Repository](https://github.com/mapsnippets/leaflet-skill)
 
@@ -181,5 +181,5 @@ This project is licensed under the MIT License — see the [LICENSE](./LICENSE.m
 <br>
 
 <p align="center">
-  Maintained by <a href="https://mapsnippets.com/">MapSnippets</a> — Open web mapping tools & snippets.
+  Maintained by <a href="https://mapsnippets.org/">MapSnippets</a> — Open web mapping tools & snippets.
 </p>
