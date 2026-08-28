@@ -1,0 +1,17 @@
+{
+  "name": "leaflet-skill",
+  "owner": {
+    "name": "mapsnippets"
+  },
+  "plugins": [
+    {
+      "name": "leaflet-skill",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/mapsnippets/leaflet-skill.git"
+      },
+      "description": "Leaflet expert skill for AI agents",
+      "version": "1.0.0"
+    }
+  ]
+}
