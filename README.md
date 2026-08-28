@@ -34,7 +34,7 @@ Maintained by **[MapSnippets](https://mapsnippets.com/)** — Open-source geospa
 A skill is on-demand expertise: the agent loads it only when your request matches the skill's description, then follows its instructions instead of guessing. When you ask for Leaflet maps, vector tiles, marker clustering, custom panes, or GeoJSON layers, this skill makes the agent:
 
 - **Generate pure native Leaflet code** (v1.9+) with proper container lifecycle, touch event handling, and `invalidateSize` resize logic.
-- **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) for sharp zooming and vector rendering.
+- **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with MapTiler `streets-v4` styles for sharp zooming and vector rendering.
 - **Implement high-DPI raster tile layers** with `tileSize: 512`, `zoomOffset: -1`, and `@2x` retina scaling.
 - **Cluster high-density markers** cleanly using `leaflet.markercluster` with custom cluster icons and spiderfy behavior.
 - **Prevent coordinate order inversion bugs** — strictly enforces Leaflet's `[latitude, longitude]` API convention vs GeoJSON's `[longitude, latitude]`.
@@ -131,13 +131,13 @@ import "leaflet/dist/leaflet.css";
 const map = L.map("map").setView([50.0755, 14.4378], 13); // [lat, lng]
 
 L.maplibreGL({
-  style: "https://api.maptiler.com/maps/streets-v2/style.json?key=YOUR_API_KEY"
+  style: "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY"
 }).addTo(map);
 ```
 
 ### High-DPI Raster Tiles:
 ```javascript
-L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
+L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
   tileSize: 512,
   zoomOffset: -1,
   minZoom: 1,
