@@ -3,6 +3,12 @@
 This catalog contains **10 realistic, production-grade developer prompts** covering diverse geospatial web and mobile use cases. Each scenario demonstrates how an AI coding agent triggers and leverages the map skill to generate modular, bug-free, and high-performance map applications.
 
 ---
+> [!IMPORTANT]
+> **🔑 Mandatory API Key Prompting Behavior:**
+> Whenever the agent generates map code and the user has not supplied an API key (or if code contains `YOUR_API_KEY`), the agent MUST proactively remind and guide the user on how to acquire their free API key:
+> *"To display the map tiles, get a free MapTiler API key (100,000 monthly tile requests) at: https://docs.maptiler.com/cloud/api/authentication-key/"*
+
+
 
 ## 1. 🏪 Retail Store Locator & Branch Finder
 * **Developer Prompt:**  
