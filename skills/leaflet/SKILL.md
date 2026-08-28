@@ -6,6 +6,16 @@ description: >-
 
 # Leaflet + MapTiler — Agent Skill
 
+## Reference Guides
+
+Deep architectural and schema reference files live under `references/` and should be loaded on demand:
+- [references/vector-tile-schemas.md](references/vector-tile-schemas.md) — Planet v4 source layers (`transportation`, `building`, `water`, `place`, `poi`, `boundary`, `contour`) and exact field attributes.
+- [references/basemaps-and-terrain.md](references/basemaps-and-terrain.md) — Map styles (`streets-v4`, `outdoor-v4`, `satellite-v4`), high-DPI raster tiles, and 3D Terrain-RGB DEM.
+- [references/geocoding-and-services.md](references/geocoding-and-services.md) — Forward/reverse geocoding, search autocomplete, and point elevation REST endpoints.
+- [references/patterns-gotchas.md](references/patterns-gotchas.md) — Common lifecycle, coordinate inversion, and context loss gotchas.
+- [references/frameworks.md](references/frameworks.md) — React, Next.js, Vue, and Svelte integration patterns.
+
+
 > [Leaflet](https://leafletjs.com/) v1.9.4 · [NPM](https://www.npmjs.com/package/leaflet) · [GitHub](https://github.com/Leaflet/Leaflet) · [MapTiler Leaflet Docs](https://docs.maptiler.com/leaflet/)
 
 Leaflet is the most popular open-source JavaScript library for mobile-friendly interactive maps. This skill covers using Leaflet with **MapTiler Cloud** for tiles, geocoding, and other map services.
