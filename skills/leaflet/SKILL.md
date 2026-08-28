@@ -1,19 +1,7 @@
 ---
-name: leaflet-maptiler
+name: leaflet
 description: >-
-  Expert coding skill for building interactive web maps with Leaflet JS and
-  MapTiler Cloud tiles/services. USE WHEN the user wants to create a Leaflet
-  map, add Leaflet markers or popups, display raster tiles from MapTiler,
-  use vector tiles in Leaflet via leaflet-maplibre-gl plugin, add GeoJSON
-  layers with Leaflet, create a choropleth map, build marker clustering with
-  leaflet.markercluster, add a heatmap with leaflet.heat, implement geocoding
-  or address search using MapTiler API in Leaflet, add drawing tools with
-  Leaflet.draw, switch tile layers, create custom Leaflet controls, handle
-  Leaflet events, or integrate Leaflet with React (react-leaflet) or Vue
-  (vue-leaflet). Also USE WHEN the user mentions Leaflet with MapTiler tiles,
-  L.map, L.marker, L.tileLayer, or wants a lightweight 2D map library.
-  Leaflet uses [lat, lng] coordinate order — opposite of MapLibre/GeoJSON.
-  Covers CDN and NPM usage, plugins, and framework integration patterns.
+  Expert coding skill for building lightweight, interactive web maps with Leaflet (v1.9+). USE WHEN the user wants to create a map, add an interactive 2D map to a web or mobile app, display locations or routes, build a store locator, add markers, popups, or tooltips, render GeoJSON data on a map, create a choropleth map, build marker clustering, add a heatmap, render vector tiles or raster tile layers, switch to satellite view, handle map click or drag events, add drawing tools, integrate maps in React (react-leaflet), Next.js, Vue, or Svelte, or build a lightweight mobile map. Also USE WHEN the user mentions Leaflet, L.map, L.marker, L.tileLayer, or Leaflet plugins.
 ---
 
 # Leaflet + MapTiler — Agent Skill
