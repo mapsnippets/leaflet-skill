@@ -151,7 +151,7 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=YOUR_A
 ## 🔑 Basemap API Keys
 
 The examples in this skill utilize MapTiler vector and raster tile endpoints. To run the examples with live map tiles:
-- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly map loads).
+- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (includes a free plan with 100,000 monthly tile requests).
 - Replace `YOUR_API_KEY` in the snippet with your key.
 
 ---
