@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Leaflet - GeoJSON Choropleth & Interactive Legend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+    #map { height: 100vh; width: 100vw; }
+    .legend {
+      background: white; padding: 10px 14px; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); line-height: 24px; font-size: 13px; color: #333;
+    }
+    .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    // Get free API key at: https://docs.maptiler.com/cloud/api/authentication-key/
+    const API_KEY = "YOUR_API_KEY";
+
+    const map = L.map('map').setView([50.07, 14.44], 13);
+
+    L.tileLayer(`https://api.maptiler.com/maps/dataviz-v4-light/{z}/{x}/{y}.png?key=${API_KEY}`, {
+      tileSize: 512, zoomOffset: -1, minZoom: 1, maxZoom: 22
+    }).addTo(map);
+
+    const geojsonData = {
+      type: "FeatureCollection",
+      features: [
+        { type: "Feature", properties: { name: "District 1", density: 120 }, geometry: { type: "Polygon", coordinates: [[[14.41, 50.07], [14.44, 50.07], [14.44, 50.09], [14.41, 50.09], [14.41, 50.07]]] } },
+        { type: "Feature", properties: { name: "District 2", density: 65 }, geometry: { type: "Polygon", coordinates: [[[14.44, 50.07], [14.47, 50.07], [14.47, 50.09], [14.44, 50.09], [14.44, 50.07]]] } },
+        { type: "Feature", properties: { name: "District 3", density: 25 }, geometry: { type: "Polygon", coordinates: [[[14.41, 50.05], [14.47, 50.05], [14.47, 50.07], [14.41, 50.07], [14.41, 50.05]]] } }
+      ]
+    };
+
+    function getColor(d) {
+      return d > 100 ? '#800026' : d > 50  ? '#FC4E2A' : '#FED976';
+    }
+
+    function style(feature) {
+      return { fillColor: getColor(feature.properties.density), weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.65 };
+    }
+
+    let geojsonLayer = L.geoJSON(geojsonData, {
+      style: style,
+      onEachFeature: (feature, layer) => {
+        layer.on({
+          mouseover: (e) => e.target.setStyle({ weight: 4, color: '#0084ff', fillOpacity: 0.85 }),
+          mouseout: (e) => geojsonLayer.resetStyle(e.target)
+        });
+        layer.bindTooltip(`<b>${feature.properties.name}</b><br>Density: ${feature.properties.density}`);
+      }
+    }).addTo(map);
+
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function (map) {
+      const div = L.DomUtil.create('div', 'legend');
+      const grades = [0, 50, 100];
+      div.innerHTML += '<b>Density Index</b><br>';
+      for (let i = 0; i < grades.length; i++) {
+        div.innerHTML += '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+          grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+      }
+      return div;
+    };
+    legend.addTo(map);
+  </script>
+</body>
+</html>
