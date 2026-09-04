@@ -196,11 +196,11 @@ The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap 
 ## 🧪 Evaluation & Validation
 
 This skill includes an automated evaluation benchmark suite in `skills/leaflet/evals/evals.json` covering:
-1. Vector Basemap Integration (`@maplibre/maplibre-gl-leaflet`)
-2. High-DPI Raster Tile Layers (`tileSize: 512`, `zoomOffset: -1`)
-3. GeoJSON Feature Styling & Lat/Lng Inversion Prevention
-4. High-Density Marker Clustering (`leaflet.markercluster`)
-5. Custom Panes & Z-Index Layer Ordering (`createPane`)
+1. High-Resolution Web Map Quickstart (crisp 512px tiles, [lat, lng] ordering)
+2. Interactive Demographic Choropleth Map (data-driven color ramps, legend box)
+3. High-Density Marker Clustering with Popups (animated bubbles, spiderfy)
+4. Animated Route Polyline (marching ants pulse animation along path)
+5. Split-Screen Satellite Swipe Comparison (side-by-side draggable slider)
 
 To validate compliance against the Agent Skills specification using the reference validator:
 
