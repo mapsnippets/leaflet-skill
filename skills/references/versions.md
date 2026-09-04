@@ -8,7 +8,7 @@ This guide lists the current production versions of Leaflet, verified official c
 
 | Library / Package | Current Version | Ingestion / Type | Primary Purpose |
 | :--- | :--- | :--- | :--- |
-| **leaflet** | `1.9.4` | UMD / ESM / NPM | Core lightweight 2D mapping library (LTS Standard) |
+| **leaflet** | `1.9.4` | UMD / ESM / NPM | Core lightweight 2D mapping library (Stable) |
 | **leaflet.markercluster** | `1.5.3` | UMD Plugin + CSS | High-performance point density clustering |
 | **esri-leaflet** | `3.0.12` | UMD Plugin | ArcGIS feature, tile, and geocoding services |
 | **leaflet-draw** | `1.0.4` | UMD Plugin + CSS | Geometry drawing, editing, and measurement toolbar |
@@ -23,7 +23,7 @@ This guide lists the current production versions of Leaflet, verified official c
 
 ## 2. Official CDN Endpoints
 
-### Leaflet v1.9.4 (LTS Production)
+### Leaflet v1.9.4
 * **JavaScript:** `https://unpkg.com/leaflet@1.9.4/dist/leaflet.js`
 * **CSS Stylesheet:** `https://unpkg.com/leaflet@1.9.4/dist/leaflet.css`
 * **Integrity Hash (JS):** `sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=`
