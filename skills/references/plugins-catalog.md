@@ -265,3 +265,141 @@ L.Routing.control({
   }
 }).addTo(map);
 ```
+
+---
+
+## 9. Marching Ants Animated Polyline (`leaflet-ant-path`)
+
+Renders animated dash patterns along polylines to simulate directional flows, transit lines, and vehicle trajectories.
+
+### Installation:
+```bash
+npm install leaflet-ant-path
+```
+
+### Implementation:
+```javascript
+import L from 'leaflet';
+import { antPath } from 'leaflet-ant-path';
+
+const path = antPath(routeCoordinates, {
+  color: '#0084FF',
+  pulseColor: '#FFFFFF',
+  delay: 400,
+  dashArray: [10, 20],
+  weight: 5,
+  opacity: 0.8
+}).addTo(map);
+```
+
+---
+
+## 10. Geodesic Great-Circle Lines (`leaflet-geodesic`)
+
+Draws mathematically accurate great-circle flight paths and calculates true ellipsoidal geodesics.
+
+### Installation:
+```bash
+npm install leaflet-geodesic
+```
+
+### Implementation:
+```javascript
+import L from 'leaflet';
+import 'leaflet-geodesic';
+
+const flightPath = new L.Geodesic([
+  [50.0755, 14.4378], // Prague
+  [40.7128, -74.0060]  // New York
+], {
+  weight: 3,
+  color: '#00D2FF',
+  steps: 50
+}).addTo(map);
+
+console.log('Great-circle distance in meters:', flightPath.distance());
+```
+
+---
+
+## 11. Rotated Marker Heading (`leaflet-rotatedmarker`)
+
+Enables continuous heading / yaw rotation for markers (essential for planes, boats, and vehicles tracking GPS course).
+
+### Installation:
+```bash
+npm install leaflet-rotatedmarker
+```
+
+### Implementation:
+```javascript
+import L from 'leaflet';
+import 'leaflet-rotatedmarker';
+
+const planeMarker = L.marker([50.0755, 14.4378], {
+  rotationAngle: 45, // Degrees clockwise
+  rotationOrigin: 'center center'
+}).addTo(map);
+
+// Update bearing dynamically:
+planeMarker.setRotationAngle(90);
+```
+
+---
+
+## 12. Vector Tiles in Leaflet (`Leaflet.VectorGrid`)
+
+Renders Mapbox Vector Tiles (MVT / Protobuf) directly in Leaflet.
+
+### Installation:
+```bash
+npm install leaflet.vectorgrid
+```
+
+### Implementation:
+```javascript
+import L from 'leaflet';
+import 'leaflet.vectorgrid';
+
+const vectorTileLayer = L.vectorGrid.protobuf(
+  'https://api.maptiler.com/tiles/v3/{z}/{x}/{y}.pbf?key=KEY',
+  {
+    vectorTileLayerStyles: {
+      water: { fillColor: '#0084FF', fillOpacity: 0.6, stroke: false },
+      building: { fillColor: '#1e293b', fillOpacity: 0.8, color: '#334155', weight: 0.5 }
+    },
+    interactive: true
+  }
+).addTo(map);
+```
+
+---
+
+## 13. Cloud-Optimized GeoTIFF (`georaster-layer-for-leaflet`)
+
+Client-side parsing and rendering of multiband GeoTIFF raster imagery.
+
+### Installation:
+```bash
+npm install georaster georaster-layer-for-leaflet
+```
+
+### Implementation:
+```javascript
+import parseGeoraster from 'georaster';
+import GeoRasterLayer from 'georaster-layer-for-leaflet';
+
+fetch('https://example.com/satellite.tif')
+  .then(response => response.arrayBuffer())
+  .then(parseGeoraster)
+  .then(georaster => {
+    const layer = new GeoRasterLayer({
+      georaster: georaster,
+      opacity: 0.7,
+      pixelValuesToColorFn: values => values[0] === 0 ? null : `rgb(${values[0]},${values[1]},${values[2]})`,
+      resolution: 256
+    });
+    layer.addTo(map);
+    map.fitBounds(layer.getBounds());
+  });
+```
