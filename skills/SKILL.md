@@ -83,38 +83,56 @@ Follow these rules on every Leaflet code generation to prevent bugs:
 
 ---
 
-## 🔎 Fast Search & Prefix Conventions
+## 🔎 Fast Search Topic Router
 
-Target your `grep` or file searches in `references/` using these prefixes to quickly load exact task guides:
+To quickly find the exact Leaflet implementation guide or API specification, use direct directory routing:
 
-| Category | File Prefix | Contents |
+| Category | Location | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | `examples-leaflet-*` | Atomic, copy-pasteable tutorials with full HTML, CSS, and native JS (Quickstart, Choropleth, Clusters, Custom Icons, Mobile, WMS, Panes, Side-by-Side) |
-| **Core API References** | `api-*` | Authoritative specifications for Map, UI Layers, Vector Layers, Controls, and Utilities |
-| **Basemaps & Services** | `basemaps-*`, `vector-tile-*`, `geocoding-*` | MapTiler Planet v4 tile endpoints, vector tile schemas, and REST services |
-
-Consult **[references/INDEX.md](references/INDEX.md)** for the complete master index.
+| **Official Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **22 atomic official examples** with full HTML, CSS, and native `L.*` JS across Quickstart, Panes, Mobile, GeoJSON, Clustering, Geoman, and Overlays |
+| **Core API & Architecture** | **[references/INDEX.md](references/INDEX.md)** | Authoritative specifications for Map, UI Layers, Vector Layers, Controls, and Utilities |
+| **Ecosystem & Workflows** | `references/geojson-*`, `references/panes-*`, `references/marker-*` | Deep guides for clustering, custom panes, GeoJSON styling, and frameworks |
+| **Basemaps, Schemas & Services**| `references/basemaps-*`, `references/vector-tile-*` | MapTiler Planet v4 tile URLs, vector schemas, and REST endpoints |
 
 ---
 
-## 📚 Modular Reference Guides
+## 🧪 22 Official Task Examples (`examples/`)
 
-Read these reference files on demand for deep implementation patterns:
+All task examples are self-contained with complete HTML, CSS, and native Leaflet JavaScript code (`L.map(...)`) using MapTiler Planet v4 raster XYZ or vector tile styles. Browse **[examples/INDEX.md](examples/INDEX.md)** for the complete categorized catalog:
 
-- [references/INDEX.md](references/INDEX.md) — Master catalog of all API specs, practical guides, and official step-by-step examples.
-- [references/examples-leaflet-quickstart.md](references/examples-leaflet-quickstart.md) — Official Quick Start guide with complete HTML, CSS, tiles, and popups.
-- [references/examples-leaflet-geojson-choropleth.md](references/examples-leaflet-geojson-choropleth.md) — Interactive choropleth case study with custom info box and legend.
-- [references/examples-leaflet-marker-clustering.md](references/examples-leaflet-marker-clustering.md) — Clustering 10k+ markers with custom count badges and spiderfy.
-- [references/examples-leaflet-custom-icons.md](references/examples-leaflet-custom-icons.md) — Custom `L.Icon` classes, retina `@2x`, anchor offsets, and shadow alignment.
-- [references/examples-leaflet-layers-control.md](references/examples-leaflet-layers-control.md) — Base layer radio buttons and overlay layer checkboxes.
-- [references/examples-leaflet-mobile-geolocation.md](references/examples-leaflet-mobile-geolocation.md) — Mobile fullscreen viewport and GPS location tracking.
-- [references/examples-leaflet-map-panes.md](references/examples-leaflet-map-panes.md) — Custom panes sandwich architecture (road labels over polygons).
-- [references/examples-leaflet-side-by-side.md](references/examples-leaflet-side-by-side.md) — Swipe split comparison slider between satellite and street tiles.
+- [examples/quickstart.md](examples/quickstart.md) — Official Quick Start guide with complete HTML, CSS, tiles, and popups.
+- [examples/layers-control.md](examples/layers-control.md) — Dynamic base map switcher and overlay toggles with `L.control.layers`.
+- [examples/zoom-levels.md](examples/zoom-levels.md) — Fine-tuning fractional zoom steps, `zoomSnap`, and scale limits.
+- [examples/accessibility-aria.md](examples/accessibility-aria.md) — Accessible map navigation with keyboard controls, ARIA roles, and screen-reader titles.
+- [examples/custom-icons.md](examples/custom-icons.md) — Custom `L.Icon` classes, retina `@2x`, anchor offsets, and shadow alignment.
+- [examples/custom-radar-pulse-marker.md](examples/custom-radar-pulse-marker.md) — Glowing animated CSS radar beacon marker using `L.divIcon`.
+- [examples/marker-clustering.md](examples/marker-clustering.md) — Clustering 10k+ markers with custom count badges and spiderfy.
+- [examples/geojson-choropleth.md](examples/geojson-choropleth.md) — Interactive choropleth case study with custom info box and legend.
+- [examples/mobile-geolocation.md](examples/mobile-geolocation.md) — Mobile fullscreen viewport and GPS location tracking.
+- [examples/map-panes.md](examples/map-panes.md) — Custom panes sandwich architecture (road labels over polygons).
+- [examples/geoman-geometry-editing.md](examples/geoman-geometry-editing.md) — Complete vector digitizing suite (drawing, editing vertices, cutting polygons).
+- [examples/side-by-side.md](examples/side-by-side.md) — Swipe split comparison slider between satellite and street tiles.
+- *...and 10 more task recipes in [examples/INDEX.md](examples/INDEX.md).*
+
+---
+
+## 📚 Core API & Architecture References (`references/`)
+
+Deep architectural and schema reference files live under `references/` and should be loaded on demand:
+- [references/INDEX.md](references/INDEX.md) — Master catalog of all API specs, practical guides, and schemas.
+- [references/api-map.md](references/api-map.md) — Complete `L.Map` options, state modification (`setView`, `fitBounds`, `flyTo`, `invalidateSize`), coordinate conversions, and map properties/panes.
+- [references/api-ui-layers.md](references/api-ui-layers.md) — `L.Marker`, `L.Popup`, `L.Tooltip`, `L.Icon`, `L.Icon.Default`, `L.DivIcon`.
+- [references/api-raster-and-vector-layers.md](references/api-raster-and-vector-layers.md) — `L.TileLayer`, `L.TileLayer.WMS`, `L.ImageOverlay`, `L.VideoOverlay`, `L.SVGOverlay`, `L.Path`, `L.Polyline`, `L.Polygon`, `L.Circle`, `L.CircleMarker`, `L.Rectangle`, `L.SVG`, `L.Canvas`.
+- [references/api-layers-controls-base.md](references/api-layers-controls-base.md) — `L.LayerGroup`, `L.FeatureGroup`, `L.GeoJSON`, `L.GridLayer`, `L.Control` (`Zoom`, `Attribution`, `Scale`, `Layers`, `extend`), `L.Class`, `L.Evented`, `L.Layer`, `L.Handler`.
+- [references/api-utility-types-misc.md](references/api-utility-types-misc.md) — `L.LatLng`, `L.LatLngBounds`, `L.Point`, `L.Bounds`, `L.Util`, `L.Transformation`, `L.LineUtil`, `L.PolyUtil`, `L.DomEvent`, `L.DomUtil`, `L.Browser`, `L.CRS` (`EPSG3857`, `EPSG4326`, `Simple`).
 - [references/vector-tiles-and-plugins.md](references/vector-tiles-and-plugins.md) — Vector tiles via `@maplibre/maplibre-gl-leaflet` & `Leaflet.VectorGrid`.
 - [references/geojson-and-markers.md](references/geojson-and-markers.md) — `L.geoJSON`, `pointToLayer`, custom `L.divIcon`, `bindPopup`, `bindTooltip`, choropleths.
 - [references/panes-and-zindex.md](references/panes-and-zindex.md) — Custom map panes (`map.createPane`) for strict layer and label z-index control.
 - [references/frameworks.md](references/frameworks.md) — React (`react-leaflet` v4/v5 & vanilla hooks), Next.js SSR fix, Vue (`vue-leaflet`), Svelte.
+- [references/plugins-catalog.md](references/plugins-catalog.md) — Working recipes for the top 10 plugins (heatmaps, geoman drawing, split comparison, minimap, omnivore, routing).
 - [references/patterns-gotchas.md](references/patterns-gotchas.md) — The 10 most common Leaflet bugs (bundler icon 404s, React double-init, missing CSS).
+- [references/events.md](references/events.md) — Comprehensive DOM and map event listeners (`click`, `moveend`, `zoomlevelschange`, `layeradd`).
+- [references/prompt-benchmarks.md](references/prompt-benchmarks.md) — Standardized Leaflet evaluation prompts and verified patterns.
 - [references/vector-tile-schemas.md](references/vector-tile-schemas.md) — Full 9-schema catalog (Planet v4, Outdoor SAC scales, Contours, 3D Buildings, Ocean, Cadastre).
 - [references/basemaps-and-terrain.md](references/basemaps-and-terrain.md) — Map styles (`streets-v4`, `outdoor-v4`, `satellite-v4`, `dataviz-v4-dark`).
 - [references/geocoding-and-services.md](references/geocoding-and-services.md) — Forward/reverse geocoding, search autocomplete, static maps, and elevation.
