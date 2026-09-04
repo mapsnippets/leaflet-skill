@@ -1,23 +1,34 @@
 # Leaflet & Ecosystem Versions 📦⚡
 
-This guide lists the current production versions of Leaflet, verified official companion plugins, vector tile renderers, clustering engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
+This guide lists the current production versions of Leaflet, verified official companion plugins from the 28 task recipes, vector tile renderers, clustering engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
 
 ---
 
 ## 1. Core Library & Companion Plugins Matrix
 
-| Library / Package | Current Version | Ingestion / Type | Primary Purpose |
-| :--- | :--- | :--- | :--- |
-| **leaflet** | `1.9.4` | UMD / ESM / NPM | Core lightweight 2D mapping library (Stable) |
-| **leaflet.markercluster** | `1.5.3` | UMD Plugin + CSS | High-performance point density clustering |
-| **esri-leaflet** | `3.0.12` | UMD Plugin | ArcGIS feature, tile, and geocoding services |
-| **leaflet-draw** | `1.0.4` | UMD Plugin + CSS | Geometry drawing, editing, and measurement toolbar |
-| **@geoman-io/leaflet-geoman-free** | `2.18.3` | UMD / ESM + CSS | Modern vector editing, snapping, and rotation tools |
-| **leaflet.vectorgrid** | `1.3.0` | UMD Plugin | Protobuf (MVT) vector tile rendering |
-| **proj4leaflet** | `1.0.2` | UMD Plugin | Non-Mercator coordinate projections with Proj4js |
-| **leaflet-geosearch** | `4.0.0` | UMD / ESM + CSS | Address search and autocomplete control |
-| **leaflet-side-by-side** | `2.2.0` | UMD Plugin | Interactive split-screen layer swipe comparison |
-| **leaflet.heat** | `0.2.0` | UMD Plugin | Dynamic heatmap density surface renderer |
+| Library / Package | Current Version | Ingestion / Type | Primary Purpose | Used in Recipe / Guide |
+| :--- | :--- | :--- | :--- | :--- |
+| **leaflet** | `1.9.4` | UMD / ESM / NPM | Core lightweight 2D mapping library (Stable) | Core basemaps & all recipes |
+| **leaflet.markercluster** | `1.5.3` | UMD Plugin + CSS | High-performance point density clustering | `marker-clustering.md` |
+| **esri-leaflet** | `3.0.12` | UMD Plugin | ArcGIS feature, tile, and geocoding services | `wms-layers.md` / `plugins-catalog.md` |
+| **leaflet-draw** | `1.0.4` | UMD Plugin + CSS | Geometry drawing, editing, and measurement toolbar | `plugins-catalog.md` |
+| **@geoman-io/leaflet-geoman-free** | `2.18.3` | UMD / ESM + CSS | Modern vector editing, snapping, and rotation tools | `geoman-geometry-editing.md` |
+| **leaflet.vectorgrid** | `1.3.0` | UMD Plugin | Protobuf (MVT) vector tile rendering | `vector-grid-mvt.md` |
+| **proj4leaflet** | `1.0.2` | UMD Plugin | Non-Mercator coordinate projections with Proj4js | `crs-simple.md` / `plugins-catalog.md` |
+| **leaflet-geosearch** | `4.0.0` | UMD / ESM + CSS | Address search and autocomplete control | `plugins-catalog.md` |
+| **leaflet-side-by-side** | `2.2.0` | UMD Plugin | Interactive split-screen layer swipe comparison | `side-by-side.md` |
+| **leaflet.heat** | `0.2.0` | UMD Plugin | Dynamic heatmap density surface renderer | `heatmaps.md` |
+| **leaflet-measure** | `3.1.0` | UMD Plugin + CSS | Geodesic distance and area measurement control | `interactive-measure-tool.md` |
+| **leaflet-minimap** | `3.6.1` | UMD Plugin + CSS | Synchronized overview corner mini-map control | `minimap-overview.md` |
+| **leaflet.fullscreen** | `1.0.2` | UMD Plugin + CSS | Native HTML5 fullscreen map toggle | `fullscreen-toggle.md` |
+| **leaflet-rotatedmarker** | `0.2.0` | UMD Plugin | Dynamic icon heading and bearing angle rotation | `rotating-marker-heading.md` |
+| **leaflet-ant-path** | `1.3.0` | UMD Plugin | Animated marching ants polyline route tracking | `animated-polyline-ant-path.md` |
+| **leaflet-gpx** | `1.7.0` | UMD Plugin | GPS telemetry track, route, and waypoint parsing | `gpx-track-viewer.md` |
+| **leaflet-geodesic** | `2.7.1` | UMD Plugin | Great-circle curved lines and true spherical distances | `geodesic-measure.md` |
+| **georaster-layer-for-leaflet** | `3.8.0` | UMD Plugin | Direct Cloud-Optimized GeoTIFF (COG) in Leaflet | `geotiff-raster-layer.md` |
+| **georaster** | `1.6.0` | UMD Plugin | Underlying GeoTIFF binary parser for browser | `geotiff-raster-layer.md` |
+| **react-leaflet** | `4.2.1` | ESM / React Bindings | React 18 component abstractions for Leaflet | `frameworks.md` |
+| **@types/leaflet** | `1.9.14` | TypeScript Definitions | Type definitions for TypeScript / Vite / Next.js | `installation-and-cdn.md` |
 
 ---
 
@@ -29,20 +40,52 @@ This guide lists the current production versions of Leaflet, verified official c
 * **Integrity Hash (JS):** `sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=`
 * **Integrity Hash (CSS):** `sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=`
 
-### Companion Plugins (CDN)
+### Recipe Companion Plugins (CDN)
 * **Leaflet.markercluster v1.5.3:**
   - JS: `https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js`
   - CSS: `https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css`
-  - Default Theme CSS: `https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css`
-* **Leaflet-draw v1.0.4:**
-  - JS: `https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js`
-  - CSS: `https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css`
+  - Theme CSS: `https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css`
 * **Leaflet-Geoman v2.18.3:**
   - JS: `https://unpkg.com/@geoman-io/leaflet-geoman-free@2.18.3/dist/leaflet-geoman.min.js`
   - CSS: `https://unpkg.com/@geoman-io/leaflet-geoman-free@2.18.3/dist/leaflet-geoman.css`
-* **Esri Leaflet v3.0.12:** `https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js`
-* **Proj4Leaflet v1.0.2:** `https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js`
-* **Leaflet.heat v0.2.0:** `https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js`
+* **Leaflet-measure v3.1.0:**
+  - JS: `https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.js`
+  - CSS: `https://cdn.jsdelivr.net/npm/leaflet-measure@3.1.0/dist/leaflet-measure.css`
+* **Leaflet-minimap v3.6.1:**
+  - JS: `https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js`
+  - CSS: `https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.css`
+* **Leaflet.fullscreen v1.0.2:**
+  - JS: `https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js`
+  - CSS: `https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css`
+* **Leaflet-draw v1.0.4:**
+  - JS: `https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js`
+  - CSS: `https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css`
+* **Leaflet-rotatedmarker v0.2.0:**
+  - JS: `https://cdn.jsdelivr.net/npm/leaflet-rotatedmarker@0.2.0/leaflet.rotatedMarker.min.js`
+* **Leaflet-ant-path v1.3.0:**
+  - JS: `https://unpkg.com/leaflet-ant-path@1.3.0/dist/leaflet-ant-path.js`
+* **Leaflet-gpx v1.7.0:**
+  - JS: `https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js`
+* **Leaflet-geodesic v2.7.1:**
+  - JS: `https://cdn.jsdelivr.net/npm/leaflet-geodesic@2.7.1/dist/leaflet-geodesic.js`
+* **Leaflet.heat v0.2.0:**
+  - JS: `https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js`
+* **Esri Leaflet v3.0.12:**
+  - JS: `https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js`
+* **Proj4Leaflet v1.0.2:**
+  - JS: `https://unpkg.com/proj4leaflet@1.0.2/src/proj4leaflet.js`
+* **GeoRaster & Layer v3.8.0 / v1.6.0:**
+  - GeoRaster: `https://unpkg.com/georaster@1.6.0/dist/georaster.browser.bundle.min.js`
+  - GeoRasterLayer: `https://unpkg.com/georaster-layer-for-leaflet@3.8.0/dist/georaster-layer-for-leaflet.min.js`
+
+### Modern Bundler Installation (NPM)
+```bash
+# Core Leaflet & Key Plugins
+npm install leaflet@1.9.4 leaflet.markercluster@1.5.3
+
+# TypeScript Definitions (Development)
+npm install -D @types/leaflet@1.9.14
+```
 
 ---
 
