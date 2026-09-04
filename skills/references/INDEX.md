@@ -2,6 +2,8 @@
 
 This catalog lists the deep-dive architectural and API references available in the `leaflet-skill`.
 
+> **Upstream Authority:** All MapTiler basemap styles, tile endpoints, and vector tile schemas conform to the official definitions in the [`maptiler/maptiler-skills`](https://github.com/maptiler/maptiler-skills) reference repository.
+
 ---
 
 ## 📑 Complete Catalog
@@ -21,8 +23,10 @@ This catalog lists the deep-dive architectural and API references available in t
 10. **[frameworks.md](frameworks.md)** — React (`react-leaflet`), Next.js App Router (SSR dynamic import fix), Svelte, and Vue.
 11. **[plugins-catalog.md](plugins-catalog.md)** — Working recipes for the top 10 plugins (heatmaps, geoman drawing, split comparison, minimap, omnivore, routing).
 12. **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 10 Leaflet bugs (coordinate inversion, grey tiles, missing CSS, marker 404s).
+13. **[events.md](events.md)** — Comprehensive DOM and map event listeners (`click`, `moveend`, `zoomlevelschange`, `layeradd`).
+14. **[prompt-benchmarks.md](prompt-benchmarks.md)** — Standardized Leaflet evaluation prompts and verified patterns.
 
 ### Basemaps, Schemas & Services:
-12. **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`).
-13. **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `outdoor-v4`, `satellite-v4`, and 512px raster tiles.
-14. **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
+15. **[vector-tile-schemas.md](vector-tile-schemas.md)** — Complete 9-schema vector catalog (`Planet v4`, `Outdoor`, `Contours`, `3D Buildings`, `Ocean`, `Cadastre`).
+16. **[basemaps-and-terrain.md](basemaps-and-terrain.md)** — Production endpoints for `streets-v4`, `outdoor-v4`, `satellite-v4`, and 512px raster tiles.
+17. **[geocoding-and-services.md](geocoding-and-services.md)** — Forward/reverse geocoding, autocomplete search, static maps, and elevation.
