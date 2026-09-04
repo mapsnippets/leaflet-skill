@@ -73,11 +73,11 @@ graph LR
 
 You don't need special commands to use this skill. Any natural language request matching its capabilities will trigger it:
 
-- *"How do I add MapTiler vector tiles to a Leaflet map using @maplibre/maplibre-gl-leaflet?"*
+- *"How do I add sharp vector map tiles to a Leaflet map?"*
 - *"Create a Leaflet marker cluster group with custom HTML icons that spiderfies on click."*
-- *"Why is my Leaflet map grey when loaded in a Bootstrap tab or modal, and how do I fix it with invalidateSize?"*
-- *"Add a GeoJSON layer with custom hover styles, tooltips, and click zoom to bounds in Leaflet."*
-- *"Implement a drawing toolbar in Leaflet using Geoman so users can draw and edit polygons."*
+- *"Why does my Leaflet map render grey tiles when loaded inside a Bootstrap tab or modal, and how do I fix it?"*
+- *"Add a GeoJSON layer with custom hover highlights, tooltips, and click-to-zoom in Leaflet."*
+- *"Implement an interactive drawing toolbar in Leaflet so users can draw and edit polygons."*
 
 <br>
 
