@@ -30,7 +30,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 <li><a href="#-basemap-api-keys">Basemap API Keys</a></li>
 <li><a href="#-evaluation--validation">Evaluation & Validation</a></li>
 <li><a href="#links">Links</a></li>
-<li><a href="#-contributing">Contributing</a></li>
+<li><a href="#-forking--customization">Forking & Customization</a></li>
 <li><a href="#-license">License</a></li>
 </ul>
 </details>
@@ -219,13 +219,11 @@ npx @agentskills/skills-ref validate skills/leaflet
 
 <br>
 
-## 🤝 Contributing
+## 🍴 Forking & Customization
 
-Contributions are welcome! If you have optimized recipes, updated API references, or new evaluation benchmarks:
-1. Fork the repository.
-2. Ensure relative links in `skills/leaflet/SKILL.md` remain strictly valid.
-3. Validate your changes with `npx @agentskills/skills-ref validate skills/leaflet`.
-4. Submit a Pull Request.
+This repository is maintained by [MapSnippets](https://mapsnippets.org/) for automated distribution to AI coding agents. To keep maintenance lightweight and reliable, external pull requests and code contributions are not accepted.
+
+However, you are completely free to fork, customize, and extend this skill for your own private agents, corporate workflows, or specialized mapping tools under the permissive [MIT License](./LICENSE.md).
 
 <br>
 
