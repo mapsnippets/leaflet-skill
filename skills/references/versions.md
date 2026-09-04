@@ -19,10 +19,6 @@ This guide lists the current production versions of Leaflet, verified official c
 | **leaflet-side-by-side** | `2.2.0` | UMD Plugin | Interactive split-screen layer swipe comparison |
 | **leaflet.heat** | `0.2.0` | UMD Plugin | Dynamic heatmap density surface renderer |
 
-> [!NOTE]
-> **Leaflet 2.0 Alpha Status:**
-> Leaflet `2.0.0-alpha.1` is currently published under the npm `alpha` tag. For production applications, documentation, and agent recipes, **Leaflet `1.9.4`** remains the official and stable standard.
-
 ---
 
 ## 2. Official CDN Endpoints
