@@ -83,22 +83,41 @@ Follow these rules on every Leaflet code generation to prevent bugs:
 
 ---
 
+## 🔎 Fast Search & Prefix Conventions
+
+Target your `grep` or file searches in `references/` using these prefixes to quickly load exact task guides:
+
+| Category | File Prefix | Contents |
+| :--- | :--- | :--- |
+| **Official Task Examples** | `examples-leaflet-*` | Atomic, copy-pasteable tutorials with full HTML, CSS, and native JS (Quickstart, Choropleth, Clusters, Custom Icons, Mobile, WMS, Panes, Side-by-Side) |
+| **Core API References** | `api-*` | Authoritative specifications for Map, UI Layers, Vector Layers, Controls, and Utilities |
+| **Basemaps & Services** | `basemaps-*`, `vector-tile-*`, `geocoding-*` | MapTiler Planet v4 tile endpoints, vector tile schemas, and REST services |
+
+Consult **[references/INDEX.md](references/INDEX.md)** for the complete master index.
+
+---
+
 ## 📚 Modular Reference Guides
 
 Read these reference files on demand for deep implementation patterns:
 
-- [references/installation-and-cdn.md](references/installation-and-cdn.md) — CDN script tags with SRI hashes, npm/yarn/bun installs, and offline bundles.
+- [references/INDEX.md](references/INDEX.md) — Master catalog of all API specs, practical guides, and official step-by-step examples.
+- [references/examples-leaflet-quickstart.md](references/examples-leaflet-quickstart.md) — Official Quick Start guide with complete HTML, CSS, tiles, and popups.
+- [references/examples-leaflet-geojson-choropleth.md](references/examples-leaflet-geojson-choropleth.md) — Interactive choropleth case study with custom info box and legend.
+- [references/examples-leaflet-marker-clustering.md](references/examples-leaflet-marker-clustering.md) — Clustering 10k+ markers with custom count badges and spiderfy.
+- [references/examples-leaflet-custom-icons.md](references/examples-leaflet-custom-icons.md) — Custom `L.Icon` classes, retina `@2x`, anchor offsets, and shadow alignment.
+- [references/examples-leaflet-layers-control.md](references/examples-leaflet-layers-control.md) — Base layer radio buttons and overlay layer checkboxes.
+- [references/examples-leaflet-mobile-geolocation.md](references/examples-leaflet-mobile-geolocation.md) — Mobile fullscreen viewport and GPS location tracking.
+- [references/examples-leaflet-map-panes.md](references/examples-leaflet-map-panes.md) — Custom panes sandwich architecture (road labels over polygons).
+- [references/examples-leaflet-side-by-side.md](references/examples-leaflet-side-by-side.md) — Swipe split comparison slider between satellite and street tiles.
 - [references/vector-tiles-and-plugins.md](references/vector-tiles-and-plugins.md) — Vector tiles via `@maplibre/maplibre-gl-leaflet` & `Leaflet.VectorGrid`.
 - [references/geojson-and-markers.md](references/geojson-and-markers.md) — `L.geoJSON`, `pointToLayer`, custom `L.divIcon`, `bindPopup`, `bindTooltip`, choropleths.
-- [references/marker-clustering.md](references/marker-clustering.md) — `leaflet.markercluster`, spiderfy, custom cluster icons, bulk data performance.
 - [references/panes-and-zindex.md](references/panes-and-zindex.md) — Custom map panes (`map.createPane`) for strict layer and label z-index control.
 - [references/frameworks.md](references/frameworks.md) — React (`react-leaflet` v4/v5 & vanilla hooks), Next.js SSR fix, Vue (`vue-leaflet`), Svelte.
 - [references/patterns-gotchas.md](references/patterns-gotchas.md) — The 10 most common Leaflet bugs (bundler icon 404s, React double-init, missing CSS).
 - [references/vector-tile-schemas.md](references/vector-tile-schemas.md) — Full 9-schema catalog (Planet v4, Outdoor SAC scales, Contours, 3D Buildings, Ocean, Cadastre).
 - [references/basemaps-and-terrain.md](references/basemaps-and-terrain.md) — Map styles (`streets-v4`, `outdoor-v4`, `satellite-v4`, `dataviz-v4-dark`).
 - [references/geocoding-and-services.md](references/geocoding-and-services.md) — Forward/reverse geocoding, search autocomplete, static maps, and elevation.
-
----
 
 ## 🗺️ Quickstart Patterns
 
