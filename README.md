@@ -187,7 +187,7 @@ This skill includes an automated evaluation benchmark suite in `skills/leaflet/e
 To validate compliance against the Agent Skills specification using the reference validator:
 
 ```bash
-npx @agentskills/skills-ref validate skills/leaflet
+npx -y skills-ref validate skills/leaflet
 ```
 
 <br>
