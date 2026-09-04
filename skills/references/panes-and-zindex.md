@@ -1,40 +1,51 @@
 # Leaflet Custom Panes & Z-Index Management
 
-Leaflet organizes layers into **Panes** (DOM containers). By default, polygons render below markers, and popups render above everything. Creating **Custom Panes** allows precise control over layer stacking (e.g. keeping labels, district borders, or interactive vector highlights strictly above background tiles and fills).
+Leaflet organizes DOM elements into distinct containers called **Panes**. By default, raster tiles sit at the bottom (`z-index: 200`), vector paths in the middle (`z-index: 400`), markers above paths (`z-index: 600`), and popups on top (`z-index: 700`).
+
+Custom panes give developers granular control over the stacking order of layers, resolving critical cartographic problems such as:
+1. **Keeping street/place labels visible above dense thematic polygon fills**.
+2. **Placing boundary borders above heatmaps without intercepting mouse clicks**.
+3. **Isolating separate SVG/Canvas renderers with distinct opacity and blending modes**.
 
 ---
 
-## 1. Default Leaflet Panes Hierarchy
+## 1. Default Leaflet Panes Architecture
 
-| Pane Name | Default `z-index` | Purpose |
-| :--- | :--- | :--- |
-| `mapPane` | `auto` | Root container for all other panes |
-| `tilePane` | `200` | Raster and base vector tiles |
-| `overlayPane` | `400` | Vector paths, polylines, polygons, GeoJSON |
-| `shadowPane` | `500` | Marker shadow images |
-| `markerPane` | `600` | Markers (`L.marker`) |
-| `tooltipPane` | `650` | Tooltips (`L.tooltip`) |
-| `popupPane` | `700` | Popups (`L.popup`) |
+```text
+mapPane (root container, auto)
+├── tilePane (z-index: 200)       --> Base raster & tile layers
+├── overlayPane (z-index: 400)    --> Polylines, Polygons, GeoJSON vector layers
+├── shadowPane (z-index: 500)     --> Marker shadow drop images
+├── markerPane (z-index: 600)     --> Standard markers (L.marker)
+├── tooltipPane (z-index: 650)    --> Hover tooltips
+└── popupPane (z-index: 700)      --> Click popups
+```
 
 ---
 
-## 2. Creating a Custom Pane
+## 2. Creating & Configuring Custom Panes
 
-To place a GeoJSON polygon boundary above other overlay fills but below markers:
+To create a pane, call `map.createPane(name, container?)` and adjust its CSS styles via `map.getPane(name)`:
 
 ```javascript
-// 1. Create a dedicated pane with custom zIndex
-map.createPane("boundaryPane");
-map.getPane("boundaryPane").style.zIndex = 450; // Sits between overlayPane (400) and markerPane (600)
+import L from 'leaflet';
 
-// Optional: Pass pointer events through to underlying layers if needed
-map.getPane("boundaryPane").style.pointerEvents = "none";
+// 1. Create a custom pane
+map.createPane('highlightPane');
 
-// 2. Assign layer to the custom pane
-L.geoJSON(districtsGeoJSON, {
-  pane: "boundaryPane",
+// 2. Set z-index (e.g. 450 sits between overlayPane 400 and markerPane 600)
+const paneElement = map.getPane('highlightPane');
+paneElement.style.zIndex = 450;
+
+// 3. Pointer events control:
+// 'none' allows clicks to pass through transparent areas to layers below
+paneElement.style.pointerEvents = 'none';
+
+// 4. Assign any layer to this pane via the 'pane' option:
+const highlightLayer = L.geoJSON(districtBoundaries, {
+  pane: 'highlightPane',
   style: {
-    color: "#ff0055",
+    color: '#00D2FF',
     weight: 3,
     fillOpacity: 0
   }
@@ -43,29 +54,82 @@ L.geoJSON(districtsGeoJSON, {
 
 ---
 
-## 3. Top Labels Pane Pattern (Labels Above Vector Polygons)
+## 3. The "Sandwich" Architecture: Labels Above Custom Vector Overlays
 
-When rendering custom GeoJSON polygons that might obscure base map labels, use a separate tile layer pane:
+When rendering opaque or semi-transparent polygon choropleths, base map labels are often washed out or obscured. The industry standard solution is the **Sandwich Architecture**:
+1. Base tiles (no labels) in `tilePane` (200).
+2. Data polygons in `overlayPane` (400).
+3. Transparent labels overlay in a custom `labelsPane` (650).
 
 ```javascript
-// Create labels pane above overlayPane
-map.createPane("labelsPane");
-map.getPane("labelsPane").style.zIndex = 650;
-map.getPane("labelsPane").style.pointerEvents = "none";
+// Step 1: Create labels pane positioned above vector overlays
+map.createPane('topLabelsPane');
+map.getPane('topLabelsPane').style.zIndex = 650;
+map.getPane('topLabelsPane').style.pointerEvents = 'none'; // Critical: let clicks reach data
 
-// Add base map tiles (no labels) to default tilePane (200)
-L.tileLayer("https://api.maptiler.com/maps/base-v4/{z}/{x}/{y}.png?key=KEY", {
+// Step 2: Add base map tiles (without labels)
+L.tileLayer('https://api.maptiler.com/maps/base-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY', {
+  tileSize: 512,
+  zoomOffset: -1,
+  attribution: '&copy; MapTiler'
+}).addTo(map);
+
+// Step 3: Add thematic data polygons (sits in default overlayPane: 400)
+L.geoJSON(choroplethData, {
+  style: (feature) => ({
+    fillColor: feature.properties.color,
+    fillOpacity: 0.7,
+    weight: 1,
+    color: '#ffffff'
+  })
+}).addTo(map);
+
+// Step 4: Add top labels layer to the custom pane
+L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY', {
+  pane: 'topLabelsPane',
   tileSize: 512,
   zoomOffset: -1
 }).addTo(map);
+```
 
-// Add dense data polygons to default overlayPane (400)
-L.geoJSON(denseData).addTo(map);
+---
 
-// Add transparent labels layer to labelsPane (650)
-L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=KEY", {
-  pane: "labelsPane",
-  tileSize: 512,
-  zoomOffset: -1
+## 4. Re-ordering Layers Within the Same Pane
+
+For vector layers sharing the same pane, control stacking order programmatically:
+
+```javascript
+// Bring a hovered feature or layer to the front of its pane
+vectorLayer.bringToFront();
+
+// Send back behind other sibling layers
+vectorLayer.bringToBack();
+```
+
+For markers within `markerPane`, use `zIndexOffset`:
+```javascript
+// Ensure high-priority marker always renders on top of other pins
+L.marker([50.0755, 14.4378], {
+  zIndexOffset: 1000 // Added to the marker's latitude-based z-index
+}).addTo(map);
+```
+
+---
+
+## 5. Custom Pane with Dedicated SVG / Canvas Renderer
+
+When drawing thousands of geometries, assign a dedicated Canvas renderer to a custom pane:
+
+```javascript
+// Create high-speed Canvas renderer bound to custom pane
+const customCanvasRenderer = L.canvas({
+  pane: 'highlightPane',
+  padding: 0.5
+});
+
+L.circleMarker([50.0755, 14.4378], {
+  renderer: customCanvasRenderer,
+  radius: 12,
+  color: '#0084FF'
 }).addTo(map);
 ```
