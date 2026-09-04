@@ -1,73 +1,82 @@
-# Leaflet Recipe Catalog & API Cross-Reference 📚🛠️
+# Leaflet — Complete Official Examples Catalog & Recipe Matrix 📚🗺️
 
-> An encyclopedic technical directory connecting every Leaflet API class, layer, plugin, and interaction directly to its verified, production-grade standalone recipe in `skills/examples/`. Engineered with modern MapTiler Planet v4 styles.
-
----
-
-## 1. Core Map, Basemaps & Projections
-
-| Task & Architecture | Primary APIs & Techniques | Production Recipe |
-| :--- | :--- | :--- |
-| **Quickstart Basemap** | `L.map`, `L.tileLayer`, MapTiler `streets-v4`, 512px retina offset. | [`quickstart.md`](../examples/quickstart.md) |
-| **High-DPI Retina Tiles** | `zoomOffset: -1`, `tileSize: 512`, `detectRetina: false`. | [`retina-hidpi-tiles.md`](../examples/retina-hidpi-tiles.md) |
-| **Fractional Zoom Physics** | `zoomSnap: 0.25`, `zoomDelta: 0.5`, `wheelPxPerZoomLevel: 120`. | [`zoom-levels.md`](../examples/zoom-levels.md) |
-| **Non-Geographic Flat Coordinates** | `L.CRS.Simple`, pixel coordinates, floorplans, game maps. | [`crs-simple.md`](../examples/crs-simple.md) |
-| **Mobile Geolocation Tracking** | `map.locate`, `locationfound`, `locationerror`, GPS circle. | [`mobile-geolocation.md`](../examples/mobile-geolocation.md) |
-| **Accessible Screen-Reader Map** | ARIA roles, live regions, keyboard pan/zoom announcements. | [`accessibility-aria.md`](../examples/accessibility-aria.md) |
+> Exhaustive index of all **official Leaflet tutorials and examples** from [`leafletjs.com/examples.html`](https://leafletjs.com/examples.html) and core ecosystem plugin capabilities, cross-referenced with MapSnippets production recipes in [`skills/leaflet/examples/`](../examples/INDEX.md).
 
 ---
 
-## 2. GeoJSON, Vector Styling & Choropleths
+## 🧭 1. Official Core Leaflet Tutorials (`leafletjs.com`)
 
-| Task & Architecture | Primary APIs & Techniques | Production Recipe |
+| Official Tutorial | Key APIs & Techniques | Standalone Recipe |
 | :--- | :--- | :--- |
-| **GeoJSON Interactive Choropleth** | `L.geoJSON`, dynamic styling, hover feedback, custom HTML legend. | [`geojson-choropleth.md`](../examples/geojson-choropleth.md) |
-| **Animated Ant Path Polylines** | `leaflet-ant-path`, marching-ants SVG animation, trajectory tracking. | [`animated-polyline-ant-path.md`](../examples/animated-polyline-ant-path.md) |
-| **Geodesic Great-Circle Paths** | `leaflet-geodesic`, ellipsoidal flight paths, international distance. | [`geodesic-measure.md`](../examples/geodesic-measure.md) |
-| **Interactive Measure Tool** | Click-to-measure distance polylines, bearing, dynamic tooltips. | [`interactive-measure-tool.md`](../examples/interactive-measure-tool.md) |
-| **GPX Hiking Track Viewer** | `leaflet-gpx`, parsing elevation profiles, waypoints, track bounds. | [`gpx-track-viewer.md`](../examples/gpx-track-viewer.md) |
+| **[Leaflet Quick Start Guide](https://leafletjs.com/examples/quick-start/)** | Core `quick-start` official tutorial. | — |
+| **[Leaflet on Mobile](https://leafletjs.com/examples/mobile/)** | Core `mobile` official tutorial. | — |
+| **[Markers with Custom Icons](https://leafletjs.com/examples/custom-icons/)** | Core `custom-icons` official tutorial. | — |
+| **[Accessible maps](https://leafletjs.com/examples/accessibility/)** | Core `accessibility` official tutorial. | — |
+| **[Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/)** | Core `geojson` official tutorial. | — |
+| **[Interactive Choropleth Map](https://leafletjs.com/examples/choropleth/)** | Core `choropleth` official tutorial. | — |
+| **[Layer Groups and Layers Control](https://leafletjs.com/examples/layers-control/)** | Core `layers-control` official tutorial. | — |
+| **[Zoom levels](https://leafletjs.com/examples/zoom-levels/)** | Core `zoom-levels` official tutorial. | — |
+| **[Working with map panes](https://leafletjs.com/examples/map-panes/)** | Core `map-panes` official tutorial. | — |
+| **[Overlays: Image, Video, SVG](https://leafletjs.com/examples/overlays/)** | Core `overlays` official tutorial. | — |
 
 ---
 
-## 3. Markers, Icons & Clustering
+## 🧭 2. MapSnippets Production Recipe Matrix (Categorized by Domain)
+
+### 📁 Category 1: Core Map, Basemaps & Mobile
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Marker Clustering (10k+ points)** | `leaflet.markercluster`, Spiderfy, donut cluster badges, chunking. | [`marker-clustering.md`](../examples/marker-clustering.md) |
-| **Custom PNG / SVG Retinal Icons** | `L.icon`, `iconSize`, `iconAnchor`, `popupAnchor`, shadow mapping. | [`custom-icons.md`](../examples/custom-icons.md) |
-| **Radar Pulse Animation Marker** | `L.divIcon`, CSS keyframe sonar waves, glowing cyber dot. | [`custom-radar-pulse-marker.md`](../examples/custom-radar-pulse-marker.md) |
-| **Rotating Heading Marker** | `leaflet-rotatedmarker`, vehicle/plane yaw angle, GPS course. | [`rotating-marker-heading.md`](../examples/rotating-marker-heading.md) |
-| **Canvas Point Density Heatmap** | `leaflet.heat`, intensity gradients, blur/radius tuning. | [`heatmaps.md`](../examples/heatmaps.md) |
+| **Vector Map Quickstart** | `L.map`, `@maplibre/maplibre-gl-leaflet`, MapTiler `streets-v4`. | [`quickstart-map.md`](../examples/quickstart-map.md) |
+| **High-Performance Vector Tiles** | WebGL vector basemap rendering inside standard Leaflet. | [`vector-tiles-maptiler.md`](../examples/vector-tiles-maptiler.md) |
+| **Layer Group Switcher** | Dynamic basemap & overlay toggle via `L.control.layers`. | [`layer-groups-control.md`](../examples/layer-groups-control.md) |
+| **Fractional Zoom Levels** | Fine-grained zoom animation via `zoomSnap: 0.25`, `zoomDelta: 0.5`. | [`fractional-zoom-display.md`](../examples/fractional-zoom-display.md) |
+| **Mobile Geolocation Tracking** | `map.locate({ setView: true, watch: true })` with accuracy circle. | [`mobile-touch-events.md`](../examples/mobile-touch-events.md) |
+| **Accessible Screen-Reader Map** | Full keyboard focus trapping, ARIA roles, and tab index order. | [`accessible-map.md`](../examples/accessible-map.md) |
+| **Multi-Language Basemap** | MapTiler vector basemap with dynamic language localization. | [`multilingual-map.md`](../examples/multilingual-map.md) |
+| **Non-Geographical Pixel CRS** | High-resolution image/game plan navigation with `L.CRS.Simple`. | [`non-geographical-crs-simple.md`](../examples/non-geographical-crs-simple.md) |
 
----
-
-## 4. CAD Digitization & Geometry Editing
-
-| Task & Architecture | Primary APIs & Techniques | Production Recipe |
-| :--- | :--- | :--- |
-| **Geoman Vector CAD Editing** | `@geoman-io/leaflet-geoman-free`, drawing, vertex editing, snapping. | [`geoman-geometry-editing.md`](../examples/geoman-geometry-editing.md) |
-
----
-
-## 5. Imagery, Overlays, WMS & Vector Tiles
+### 📁 Category 2: GeoJSON, Vector Styling & Choropleths
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Floorplan / Orthophoto Overlay** | `L.imageOverlay`, `LatLngBounds`, image georeferencing, opacity. | [`image-overlay-floorplan.md`](../examples/image-overlay-floorplan.md) |
-| **Cloud-Optimized GeoTIFF (COG)** | `georaster-layer-for-leaflet`, client-side multiband rendering. | [`geotiff-raster-layer.md`](../examples/geotiff-raster-layer.md) |
-| **Enterprise OGC WMS Layer** | `L.tileLayer.wms`, transparent PNG, CQL filters, version 1.3.0. | [`wms-layers.md`](../examples/wms-layers.md) |
-| **WMS GetFeatureInfo on Click** | Spatial point inspection via GetFeatureInfo URL, HTML response popup. | [`wms-getfeatureinfo-click.md`](../examples/wms-getfeatureinfo-click.md) |
-| **Vector Tiles in Leaflet (MVT)** | `Leaflet.VectorGrid.protobuf`, client-side MVT rendering, styling. | [`vector-grid-mvt.md`](../examples/vector-grid-mvt.md) |
+| **Data-Driven Choropleth** | Population density classification with dynamic hover state info box. | [`interactive-choropleth.md`](../examples/interactive-choropleth.md) |
+| **GeoJSON Polygon Styling** | Interactive hover highlights, feature filtering, and click zooms. | [`geojson-polygon-styling.md`](../examples/geojson-polygon-styling.md) |
+| **Animated Polylines (Ant Path)** | Pulsing marching-ants SVG stroke dash animation on routes. | [`animated-polyline-antpath.md`](../examples/animated-polyline-antpath.md) |
+| **GPS Elevation Profile** | Parsing GPX/GeoJSON tracks with elevation profile charts. | [`gpx-elevation-profile.md`](../examples/gpx-elevation-profile.md) |
+| **Spatial GeoJSON Tooltip** | Lightweight coordinate & attribute tooltips via `L.tooltip`. | [`spatial-tooltip.md`](../examples/spatial-tooltip.md) |
 
----
-
-## 6. Controls, Custom Panes & UX Interactions
+### 📁 Category 3: Markers, Icons & Clustering
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Custom Stacking Panes** | `map.createPane`, z-index layering, labels above polygons. | [`map-panes.md`](../examples/map-panes.md) |
-| **Split-Screen Layer Swipe** | `leaflet-side-by-side`, comparing Streets vs Satellite imagery. | [`side-by-side.md`](../examples/side-by-side.md) |
-| **Mini-Map / Inset Overview** | `leaflet-minimap`, secondary synchronized camera, rectangle bounds. | [`minimap-overview.md`](../examples/minimap-overview.md) |
-| **Custom UI Control** | `L.Control.extend`, DOM event isolation, glassmorphism panel. | [`custom-control.md`](../examples/custom-control.md) |
-| **Basemap & Overlay Switcher** | `L.control.layers`, radio basemaps, toggleable feature groups. | [`layers-control.md`](../examples/layers-control.md) |
-| **HTML5 Fullscreen Toggle** | `leaflet.fullscreen`, FullScreen API, mobile orientation handling. | [`fullscreen-toggle.md`](../examples/fullscreen-toggle.md) |
+| **Custom HTML Radar Markers** | DOM markers using `L.divIcon` with pulsating CSS radar waves. | [`custom-marker-icons.md`](../examples/custom-marker-icons.md) |
+| **High-Density Clustering** | 50,000+ points clustered with `leaflet.markercluster` & spiders. | [`marker-clustering-large-dataset.md`](../examples/marker-clustering-large-dataset.md) |
+| **Rotating Heading Markers** | Continuous marker rotation tracking vehicle/vessel heading. | [`rotating-heading-markers.md`](../examples/rotating-heading-markers.md) |
+| **Draggable Geocoding Marker** | Reverse geocoding marker with real-time address updates. | [`draggable-reverse-geocoding-marker.md`](../examples/draggable-reverse-geocoding-marker.md) |
+| **Bouncing Drop Animation** | Physics-based marker drop animation on viewport initialization. | [`bouncing-marker-drop.md`](../examples/bouncing-marker-drop.md) |
+
+### 📁 Category 4: CAD Digitization & Geometry Editing
+
+| Task & Architecture | Primary APIs & Techniques | Production Recipe |
+| :--- | :--- | :--- |
+| **Geoman GIS Drawing Toolbar** | Polygon, rectangle, circle, and cut tools via `@geoman-io`. | [`geoman-drawing-toolbar.md`](../examples/geoman-drawing-toolbar.md) |
+| **Geodesic Path Ruler** | Click-to-measure geodesic distance and polygon area calculator. | [`click-to-measure-distance.md`](../examples/click-to-measure-distance.md) |
+| **Interactive Bounding Box Filter** | Rubber-band rectangle drag selection querying vector features. | [`bounding-box-filter.md`](../examples/bounding-box-filter.md) |
+
+### 📁 Category 5: Imagery, Overlays, WMS & Vector Tiles
+
+| Task & Architecture | Primary APIs & Techniques | Production Recipe |
+| :--- | :--- | :--- |
+| **Georeferenced Drone Orthophoto** | Anchoring high-resolution aerial imagery using `L.imageOverlay`. | [`image-overlay.md`](../examples/image-overlay.md) |
+| **Georeferenced Video Stream** | Synchronizing looping MP4 drone footage with `L.videoOverlay`. | [`video-overlay.md`](../examples/video-overlay.md) |
+| **Enterprise OGC WMS Layer** | Direct integration of NOAA/radar WMS layers using `L.tileLayer.wms`. | [`wms-environmental-layers.md`](../examples/wms-environmental-layers.md) |
+| **Client-Side GeoTIFF (COG)** | In-browser GeoTIFF raster parsing with `georaster-layer-for-leaflet`.| [`cog-geotiff-rendering.md`](../examples/cog-geotiff-rendering.md) |
+
+### 📁 Category 6: Controls, Custom Panes & UX Interactions
+
+| Task & Architecture | Primary APIs & Techniques | Production Recipe |
+| :--- | :--- | :--- |
+| **Custom Stacking Panes (Z-Index)** | Isolating labels above vector overlays via `map.createPane()`. | [`custom-map-panes.md`](../examples/custom-map-panes.md) |
+| **Split-Screen Map Swipe** | Synchronized side-by-side layer swipe slider using `leaflet-side-by-side`. | [`split-screen-swipe.md`](../examples/split-screen-swipe.md) |
+| **Export Map to High-Res Image** | Full client-side map canvas screenshot export via `leaflet-image`. | [`export-map-canvas-image.md`](../examples/export-map-canvas-image.md) |
