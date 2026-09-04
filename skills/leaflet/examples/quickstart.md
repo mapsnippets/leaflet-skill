@@ -1,4 +1,4 @@
-# Official Example: Leaflet Quick Start 🚀
+# Recipe: Leaflet Quick Start 🚀
 
 > Source: https://leafletjs.com/examples/quick-start/
 

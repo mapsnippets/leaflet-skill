@@ -1,6 +1,6 @@
 # HiDPI / Retina 512px Tile Configuration
 
-> Official Reference: [HiDPI / Retina 512px Tile Configuration](https://leafletjs.com/reference.html#tilelayer-detectretina)
+> **Documentation Reference:** [HiDPI / Retina 512px Tile Configuration](https://leafletjs.com/reference.html#tilelayer-detectretina)
 > Category: **Quickstart & Core Basemaps**
 
 ## Overview

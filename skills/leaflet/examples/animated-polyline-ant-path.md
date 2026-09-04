@@ -1,6 +1,6 @@
 # Animated Marching Ants Polyline Route 🐜
 
-> **Official Leaflet Reference:** [Leaflet Ant Path](https://github.com/rubenspgcavalcante/leaflet-ant-path)  
+> **Documentation Link:** [Leaflet Ant Path](https://github.com/rubenspgcavalcante/leaflet-ant-path)  
 > **Target Category:** Production Task Implementation
 
 Visualizing animated routes, flights, or transit lines with moving dashed marching ants effect.
@@ -91,6 +91,6 @@ map.fitBounds(antPath.getBounds(), { padding: [40, 40] });
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/rubenspgcavalcante/leaflet-ant-path` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/rubenspgcavalcante/leaflet-ant-path` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

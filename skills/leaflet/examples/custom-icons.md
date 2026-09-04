@@ -1,4 +1,4 @@
-# Official Example: Markers with Custom Icons 📍🎨
+# Recipe: Markers with Custom Icons 📍🎨
 
 > Source: https://leafletjs.com/examples/custom-icons/
 

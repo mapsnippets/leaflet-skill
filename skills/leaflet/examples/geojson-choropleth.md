@@ -1,4 +1,4 @@
-# Official Example: Interactive Choropleth Map 📊🗺️
+# Recipe: Interactive Choropleth Map 📊🗺️
 
 > Source: https://leafletjs.com/examples/choropleth/
 

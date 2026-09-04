@@ -1,6 +1,6 @@
 # Rotating Marker with Dynamic Heading Bearing
 
-> Official Reference: [Rotating Marker with Dynamic Heading Bearing](https://github.com/bbecquet/Leaflet.RotatedMarker)
+> **Documentation Reference:** [Rotating Marker with Dynamic Heading Bearing](https://github.com/bbecquet/Leaflet.RotatedMarker)
 > Category: **Markers, Popups & Custom Styling**
 
 ## Overview

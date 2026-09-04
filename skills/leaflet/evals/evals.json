@@ -1,11 +1,11 @@
 {
   "skill_name": "leaflet",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "evals": [
     {
       "id": 1,
       "prompt": "Create an interactive Leaflet map displaying MapTiler high-DPI 512px raster tiles with copyright attributions.",
-      "expected_output": "A complete HTML page importing Leaflet 1.9.4 CSS and JS, with an explicit 100vh map container, initializing L.map with center in [lat, lng] format, adding L.tileLayer with tileSize: 512, zoomOffset: -1, and official MapTiler attributions."
+      "expected_output": "A complete HTML page importing Leaflet 1.9.4 CSS and JS, with an explicit 100vh map container, initializing L.map with center in [lat, lng] format, adding L.tileLayer with tileSize: 512, zoomOffset: -1, and required MapTiler/OSM copyright attributions."
     },
     {
       "id": 2,

@@ -1,4 +1,4 @@
-# Official Example: Extending Leaflet Controls (`L.Control.extend`) 🎛️✨
+# Recipe: Extending Leaflet Controls (`L.Control.extend`) 🎛️✨
 
 > Source: https://leafletjs.com/examples/extending/extending-3-controls.html
 

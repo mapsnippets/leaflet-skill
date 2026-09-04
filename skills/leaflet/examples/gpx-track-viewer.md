@@ -1,6 +1,6 @@
 # GPX Track & Elevation Profile Viewer
 
-> Official Reference: [GPX Track & Elevation Profile Viewer](https://github.com/mpetazzoni/leaflet-gpx)
+> **Documentation Reference:** [GPX Track & Elevation Profile Viewer](https://github.com/mpetazzoni/leaflet-gpx)
 > Category: **Spatial Digitization, Heatmaps & Routing**
 
 ## Overview

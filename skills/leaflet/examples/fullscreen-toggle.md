@@ -1,6 +1,6 @@
 # Fullscreen Map Toggle Control ⛶
 
-> **Official Leaflet Reference:** [Leaflet.fullscreen](https://github.com/Leaflet/Leaflet.fullscreen)  
+> **Documentation Link:** [Leaflet.fullscreen](https://github.com/Leaflet/Leaflet.fullscreen)  
 > **Target Category:** Production Task Implementation
 
 Provide a fullscreen toggle button conforming to standard browser Fullscreen API with automatic leaflet map size invalidation.
@@ -77,6 +77,6 @@ L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${MAPT
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/Leaflet/Leaflet.fullscreen` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/Leaflet/Leaflet.fullscreen` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

@@ -1,6 +1,6 @@
 # Interactive Vector Drawing & Editing (Geoman) ✍️
 
-> **Official Leaflet Reference:** [Leaflet Geoman Drawing Tools](https://github.com/geoman-io/leaflet-geoman)  
+> **Documentation Link:** [Leaflet Geoman Drawing Tools](https://github.com/geoman-io/leaflet-geoman)  
 > **Target Category:** Production Task Implementation
 
 Equip the map with an end-to-end vector digitizing suite allowing users to draw markers, polylines, polygons, edit vertices, cut holes, and rotate shapes.
@@ -89,6 +89,6 @@ map.on('pm:create', (e) => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/geoman-io/leaflet-geoman` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/geoman-io/leaflet-geoman` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

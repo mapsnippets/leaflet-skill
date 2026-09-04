@@ -1,6 +1,6 @@
 # Synchronized MiniMap Overview Control 🗺️
 
-> **Official Leaflet Reference:** [Leaflet MiniMap](https://github.com/Norkart/Leaflet-MiniMap)  
+> **Documentation Link:** [Leaflet MiniMap](https://github.com/Norkart/Leaflet-MiniMap)  
 > **Target Category:** Production Task Implementation
 
 Display a miniature context map in the bottom corner of the viewport synchronized with the main map view bounds and center.
@@ -86,6 +86,6 @@ const miniMap = new L.Control.MiniMap(miniLayer, {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/Norkart/Leaflet-MiniMap` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/Norkart/Leaflet-MiniMap` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

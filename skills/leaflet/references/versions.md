@@ -1,6 +1,6 @@
 # Leaflet & Ecosystem Versions 📦⚡
 
-This guide lists the current production versions of Leaflet, verified official companion plugins from the 28 task recipes, vector tile renderers, clustering engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
+This guide lists the current production versions of Leaflet, verified companion plugins from the 28 task recipes, vector tile renderers, clustering engines, and MapTiler Planet v4 style endpoints. Use these versions when creating HTML scripts, `package.json` dependencies, or CDN links.
 
 ---
 

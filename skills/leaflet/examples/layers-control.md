@@ -1,4 +1,4 @@
-# Official Example: Layer Groups & Layers Control 🎛️📑
+# Recipe: Layer Groups & Layers Control 🎛️📑
 
 > Source: https://leafletjs.com/examples/layers-control/
 

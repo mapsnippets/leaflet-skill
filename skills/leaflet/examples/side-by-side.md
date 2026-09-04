@@ -1,4 +1,4 @@
-# Official Example: Swipe Comparison (`leaflet-side-by-side`) ↔️🗺️
+# Recipe: Swipe Comparison (`leaflet-side-by-side`) ↔️🗺️
 
 > Source: https://github.com/digidem/leaflet-side-by-side
 

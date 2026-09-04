@@ -1,6 +1,6 @@
 # Configuring Fractional Zoom Levels & Snap 🔍
 
-> **Official Leaflet Reference:** [Zoom levels](https://leafletjs.com/examples/zoom-levels/)  
+> **Documentation Link:** [Zoom levels](https://leafletjs.com/examples/zoom-levels/)  
 > **Target Category:** Production Task Implementation
 
 Fine-tuning camera zoom behavior in Leaflet using `zoomSnap`, `zoomDelta`, `wheelPxPerZoomLevel`, and smooth fractional zooming.
@@ -83,6 +83,6 @@ map.on('zoom', () => {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://leafletjs.com/examples/zoom-levels/` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://leafletjs.com/examples/zoom-levels/` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

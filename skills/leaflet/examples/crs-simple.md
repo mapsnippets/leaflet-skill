@@ -1,4 +1,4 @@
-# Official Example: Non-Geographical Maps (`L.CRS.Simple`) 🎮📐
+# Recipe: Non-Geographical Maps (`L.CRS.Simple`) 🎮📐
 
 > Source: https://leafletjs.com/examples/crs-simple/crs-simple.html
 

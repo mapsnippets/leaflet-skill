@@ -1,6 +1,6 @@
 # WMS Layer with GetFeatureInfo Click Query
 
-> Official Reference: [WMS Layer with GetFeatureInfo Click Query](https://leafletjs.com/examples/wms/wms.html)
+> **Documentation Reference:** [WMS Layer with GetFeatureInfo Click Query](https://leafletjs.com/examples/wms/wms.html)
 > Category: **Enterprise Services & Vector Tiles**
 
 ## Overview

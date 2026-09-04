@@ -1,4 +1,4 @@
-# Official Example: Heatmap Density Layer (`leaflet.heat`) 🔥🗺️
+# Recipe: Heatmap Density Layer (`leaflet.heat`) 🔥🗺️
 
 > Source: https://github.com/Leaflet/Leaflet.heat
 

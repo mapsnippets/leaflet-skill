@@ -1,6 +1,6 @@
 # Pulsating CSS Radar Beacon Marker 📡
 
-> **Official Leaflet Reference:** [Custom CSS DivIcon Marker](https://leafletjs.com/reference.html#divicon)  
+> **Documentation Link:** [Custom CSS DivIcon Marker](https://leafletjs.com/reference.html#divicon)  
 > **Target Category:** Production Task Implementation
 
 Create an animated, glowing radar ping marker using `L.divIcon` and CSS keyframe animations for real-time tracking.
@@ -101,6 +101,6 @@ L.marker([50.0755, 14.4378], { icon: beaconIcon }).addTo(map);
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://leafletjs.com/reference.html#divicon` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://leafletjs.com/reference.html#divicon` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

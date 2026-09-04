@@ -1,6 +1,6 @@
 # Georeferenced Image & Floorplan Overlay 📐
 
-> **Official Leaflet Reference:** [ImageOverlay](https://leafletjs.com/reference.html#imageoverlay)  
+> **Documentation Link:** [ImageOverlay](https://leafletjs.com/reference.html#imageoverlay)  
 > **Target Category:** Production Task Implementation
 
 Anchoring building floorplans, drone orthomosaics, or event venue schematics onto map coordinates using `L.imageOverlay`.
@@ -83,6 +83,6 @@ map.fitBounds(imageBounds);
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://leafletjs.com/reference.html#imageoverlay` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://leafletjs.com/reference.html#imageoverlay` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

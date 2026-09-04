@@ -1,6 +1,6 @@
 # Cloud-Optimized GeoTIFF (COG) with GeoRaster
 
-> Official Reference: [Cloud-Optimized GeoTIFF (COG) with GeoRaster](https://github.com/GeoTIFF/georaster-layer-for-leaflet)
+> **Documentation Reference:** [Cloud-Optimized GeoTIFF (COG) with GeoRaster](https://github.com/GeoTIFF/georaster-layer-for-leaflet)
 > Category: **Enterprise Services & Vector Tiles**
 
 ## Overview

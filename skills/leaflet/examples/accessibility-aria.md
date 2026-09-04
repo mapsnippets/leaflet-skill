@@ -1,6 +1,6 @@
 # Accessible Web Map (ARIA & Keyboard Navigation) ♿
 
-> **Official Leaflet Reference:** [Accessible maps](https://leafletjs.com/examples/accessibility/)  
+> **Documentation Link:** [Accessible maps](https://leafletjs.com/examples/accessibility/)  
 > **Target Category:** Production Task Implementation
 
 Making web maps fully accessible to screen readers and keyboard users via ARIA attributes, tab indices, alt text, and semantic descriptions.
@@ -86,6 +86,6 @@ marker.bindPopup('<h3>Prague</h3><p>Capital city of the Czech Republic.</p>', {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://leafletjs.com/examples/accessibility/` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://leafletjs.com/examples/accessibility/` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

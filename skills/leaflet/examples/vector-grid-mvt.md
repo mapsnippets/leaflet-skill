@@ -1,6 +1,6 @@
 # Client-Side MVT Vector Tiles with Leaflet.VectorGrid ⚡
 
-> **Official Leaflet Reference:** [Leaflet.VectorGrid](https://github.com/Leaflet/Leaflet.VectorGrid)  
+> **Documentation Link:** [Leaflet.VectorGrid](https://github.com/Leaflet/Leaflet.VectorGrid)  
 > **Target Category:** Production Task Implementation
 
 Render binary Mapbox Vector Tiles (.pbf) directly in Leaflet using HTML5 Canvas rendering and custom layer styling without plugins that wrap MapLibre.
@@ -92,6 +92,6 @@ const vtLayer = L.vectorGrid.protobuf(vectorTileUrl, {
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/Leaflet/Leaflet.VectorGrid` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/Leaflet/Leaflet.VectorGrid` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

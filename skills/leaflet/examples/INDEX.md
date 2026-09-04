@@ -1,6 +1,6 @@
-# Leaflet Official Task Examples Index 🧪🗺️
+# Leaflet Task Examples Index 🧪🗺️
 
-> The authoritative index of **28 atomic, copy-pasteable task implementations** for Leaflet (v1.9+), extracted directly from official Leaflet documentation and ecosystem plugins, engineered with modern MapTiler Planet v4 raster tiles.
+> The authoritative index of **28 atomic, copy-pasteable task implementations** for Leaflet (v1.9+), curated from Leaflet documentation and community recipes and ecosystem plugins, engineered with modern MapTiler Planet v4 raster tiles.
 
 ---
 

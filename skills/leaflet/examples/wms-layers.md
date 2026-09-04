@@ -1,4 +1,4 @@
-# Official Example: WMS & TMS Integration 🌐🗺️
+# Recipe: WMS & TMS Integration 🌐🗺️
 
 > Source: https://leafletjs.com/examples/wms/wms.html
 

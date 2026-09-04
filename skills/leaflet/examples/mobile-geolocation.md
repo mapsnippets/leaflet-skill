@@ -1,4 +1,4 @@
-# Official Example: Leaflet on Mobile & Geolocation 📱📍
+# Recipe: Leaflet on Mobile & Geolocation 📱📍
 
 > Source: https://leafletjs.com/examples/mobile/
 

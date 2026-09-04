@@ -1,6 +1,6 @@
 # Geodesic Great-Circle Distance & Circles 🌐
 
-> **Official Leaflet Reference:** [Leaflet.Geodesic](https://github.com/Fragger/Leaflet.Geodesic)  
+> **Documentation Link:** [Leaflet.Geodesic](https://github.com/Fragger/Leaflet.Geodesic)  
 > **Target Category:** Production Task Implementation
 
 Draw true spherical great-circle navigation routes that curve accurately across the Mercator projection, avoiding planar distance distortion.
@@ -82,6 +82,6 @@ const geodesicLine = new L.Geodesic([
 
 | Parameter / Feature | Purpose |
 | :--- | :--- |
-| **Official Standard** | Conforms to `https://github.com/Fragger/Leaflet.Geodesic` using native `L.*` Leaflet APIs. |
+| **Reference Spec** | Conforms to `https://github.com/Fragger/Leaflet.Geodesic` using native `L.*` Leaflet APIs. |
 | **Basemap Service** | Powered by modern MapTiler Planet v4 high-DPI raster XYZ or vector tile styles. |
 | **Container Lifecycle** | Call `map.remove()` on SPA unmount to prevent memory leaks and event listener retention. |

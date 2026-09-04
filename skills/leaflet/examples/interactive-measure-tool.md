@@ -1,6 +1,6 @@
 # Interactive Measurement Tool (Distance & Area)
 
-> Official Reference: [Interactive Measurement Tool (Distance & Area)](https://github.com/ljagis/leaflet-measure)
+> **Documentation Reference:** [Interactive Measurement Tool (Distance & Area)](https://github.com/ljagis/leaflet-measure)
 > Category: **Spatial Digitization, Heatmaps & Routing**
 
 ## Overview

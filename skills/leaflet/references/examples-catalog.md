@@ -1,4 +1,4 @@
-# Leaflet Official Recipe Directory & API Cross-Reference 📚🛠️
+# Leaflet Recipe Catalog & API Cross-Reference 📚🛠️
 
 > An encyclopedic technical directory connecting every Leaflet API class, layer, plugin, and interaction directly to its verified, production-grade standalone recipe in `skills/examples/`. Engineered with modern MapTiler Planet v4 styles.
 

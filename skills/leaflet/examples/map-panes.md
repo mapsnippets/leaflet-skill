@@ -1,4 +1,4 @@
-# Official Example: Working with Map Panes (Sandwich Architecture) 🥪📑
+# Recipe: Working with Map Panes (Sandwich Architecture) 🥪📑
 
 > Source: https://leafletjs.com/examples/map-panes/
 

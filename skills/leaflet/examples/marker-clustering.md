@@ -1,4 +1,4 @@
-# Official Example: Marker Clustering (`leaflet.markercluster`) 📍✨
+# Recipe: Marker Clustering (`leaflet.markercluster`) 📍✨
 
 > Source: https://github.com/Leaflet/Leaflet.markercluster
 

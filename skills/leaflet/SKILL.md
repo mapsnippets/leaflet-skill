@@ -89,18 +89,18 @@ To quickly find the exact Leaflet implementation guide or API specification, use
 
 | Category | Location | Contents |
 | :--- | :--- | :--- |
-| **Official Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **22 atomic official examples** with full HTML, CSS, and native `L.*` JS across Quickstart, Panes, Mobile, GeoJSON, Clustering, Geoman, and Overlays |
+| **Task Examples** | **[examples/INDEX.md](examples/INDEX.md)** | **atomic runnable recipes** with full HTML, CSS, and native `L.*` JS across Quickstart, Panes, Mobile, GeoJSON, Clustering, Geoman, and Overlays |
 | **Core API & Architecture** | **[references/INDEX.md](references/INDEX.md)** | Authoritative specifications for Map, UI Layers, Vector Layers, Controls, and Utilities |
 | **Ecosystem & Workflows** | `references/geojson-*`, `references/panes-*`, `references/marker-*` | Deep guides for clustering, custom panes, GeoJSON styling, and frameworks |
 | **Basemaps, Schemas & Services**| `references/basemaps-*`, `references/vector-tile-*` | MapTiler Planet v4 tile URLs, vector schemas, and REST endpoints |
 
 ---
 
-## 🧪 22 Official Task Examples (`examples/`)
+## 🧪 Runnable Task Examples (`examples/`)
 
 All task examples are self-contained with complete HTML, CSS, and native Leaflet JavaScript code (`L.map(...)`) using MapTiler Planet v4 raster XYZ or vector tile styles. Browse **[examples/INDEX.md](examples/INDEX.md)** for the complete categorized catalog:
 
-- [examples/quickstart.md](examples/quickstart.md) — Official Quick Start guide with complete HTML, CSS, tiles, and popups.
+- [examples/quickstart.md](examples/quickstart.md) — Quickstart guide with complete HTML, CSS, tiles, and popups.
 - [examples/layers-control.md](examples/layers-control.md) — Dynamic base map switcher and overlay toggles with `L.control.layers`.
 - [examples/zoom-levels.md](examples/zoom-levels.md) — Fine-tuning fractional zoom steps, `zoomSnap`, and scale limits.
 - [examples/accessibility-aria.md](examples/accessibility-aria.md) — Accessible map navigation with keyboard controls, ARIA roles, and screen-reader titles.
