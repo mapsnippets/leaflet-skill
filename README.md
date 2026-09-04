@@ -1,9 +1,9 @@
 # Leaflet — Agent Skill 🍃🤖
 
 [![Agent Skills Specification](https://img.shields.io/badge/Agent_Skills-Specification_Compliant-0084FF?logo=anthropic&logoColor=white)](https://agentskills.io/specification)
-[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin_v1.1.0-7952B3?logo=anthropic&logoColor=white)](https://code.claude.com)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude_Code-Plugin-7952B3?logo=anthropic&logoColor=white)](https://code.claude.com)
 [![Skills CLI](https://img.shields.io/badge/Skills_CLI-npx_skills_add-success)](https://github.com/vercel-labs/skills)
-[![Leaflet](https://img.shields.io/badge/Leaflet-v1.9.4_(LTS)-199900)](https://leafletjs.com/)
+[![Leaflet](https://img.shields.io/badge/Leaflet-JavaScript-199900)](https://leafletjs.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 
 > Open-source **Leaflet** AI skill for coding assistants (Claude Code, Cursor, Antigravity, GitHub Copilot, Windsurf, Roo Code, Gemini CLI). Built in accordance with the open **[Agent Skills Specification](https://agentskills.io/)**.
@@ -24,7 +24,7 @@ An **Agent Skill** is on-demand domain expertise: AI assistants load it dynamica
 
 When activated for **Leaflet**, this skill guides the agent to:
 
-- **Generate pure native Leaflet code** (v1.9.4 LTS) with robust container lifecycle handling, touch event compatibility, and `invalidateSize` responsive resize management.
+- **Generate pure native Leaflet code** with robust container lifecycle handling, touch event compatibility, and `invalidateSize` responsive resize management.
 - **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) for high-DPI rendering and crisp vector typography.
 - **Implement high-DPI raster tile layers** with `tileSize: 512`, `zoomOffset: -1`, and `@2x` retina scaling to prevent blurry pixelation.
 - **Cluster high-density markers** cleanly using `leaflet.markercluster` with custom SVG cluster badges, spiderfy child expansions, and chunked loading.
@@ -109,8 +109,8 @@ This repository strictly conforms to the [Agent Skills specification](https://ag
 ```text
 mapsnippets/leaflet-skill/
 ├── .claude-plugin/
-│   ├── marketplace.json    — Claude Code marketplace catalog manifest (v1.1.0)
-│   └── plugin.json         — Claude Code plugin manifest & metadata (v1.1.0)
+│   ├── marketplace.json    — Claude Code marketplace catalog manifest
+│   └── plugin.json         — Claude Code plugin manifest & metadata
 ├── skills/
 │   └── leaflet/
 │       ├── SKILL.md        — Entry point prompt & progressive disclosure router (< 200 lines)

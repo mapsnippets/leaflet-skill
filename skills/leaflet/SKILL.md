@@ -1,7 +1,7 @@
 ---
 name: leaflet
 description: >-
-  Expert coding skill for building lightweight, interactive web maps with Leaflet (v1.9+).
+  Expert coding skill for building lightweight, interactive web maps with Leaflet.
   USE WHEN the user wants to create a map, add an interactive 2D map to a web or mobile
   app, display locations or routes, build a store locator, add markers, popups, or
   tooltips, render GeoJSON data on a map, create a choropleth map, build marker
@@ -17,7 +17,7 @@ metadata:
 
 # Leaflet — Agent Skill 🍃🗺️
 
-> The authoritative AI coding standard for building fast, mobile-friendly, interactive web maps with **Leaflet (v1.9+)** and modern vector/raster tile services.
+> The authoritative AI coding standard for building fast, mobile-friendly, interactive web maps with **Leaflet** and modern vector/raster tile services.
 
 Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospatial snippets, guides, and agent tools.
 
