@@ -25,7 +25,7 @@ An **Agent Skill** is on-demand domain expertise: AI assistants load it dynamica
 When activated for **Leaflet**, this skill guides the agent to:
 
 - **Generate pure native Leaflet code** (v1.9.4 LTS) with robust container lifecycle handling, touch event compatibility, and `invalidateSize` responsive resize management.
-- **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with MapTiler `streets-v4` styles for high-DPI rendering and crisp vector typography.
+- **Render modern vector tiles in Leaflet** using standard plugins like `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) for high-DPI rendering and crisp vector typography.
 - **Implement high-DPI raster tile layers** with `tileSize: 512`, `zoomOffset: -1`, and `@2x` retina scaling to prevent blurry pixelation.
 - **Cluster high-density markers** cleanly using `leaflet.markercluster` with custom SVG cluster badges, spiderfy child expansions, and chunked loading.
 - **Prevent coordinate order inversion bugs** — strictly enforces Leaflet's `[latitude, longitude]` API convention vs GeoJSON's `[longitude, latitude]`.
@@ -169,9 +169,9 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_A
 
 ## 🔑 Basemap API Keys
 
-The vector and raster tile recipes in this skill use MapTiler Planet v4 basemap styles. To run recipes with live vector tiles:
-- Follow the guide on [how to get a free MapTiler API Key](https://docs.maptiler.com/cloud/api/authentication-key/) (free tier includes 100,000 monthly requests).
-- Replace `YOUR_API_KEY` in the snippet with your active key.
+The examples and recipes in this skill utilize basemaps from **MapTiler**, which is free for use:
+- Get a free API key at [MapTiler Cloud](https://docs.maptiler.com/cloud/api/authentication-key/) (the free tier includes 100,000 requests/month with no credit card required).
+- Replace `YOUR_API_KEY` in the snippets with your active key to load live basemaps.
 
 <br>
 
