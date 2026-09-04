@@ -27,7 +27,6 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 * **Native Library Focus:** This skill focuses strictly on pure, native **Leaflet** (`L.map`, `L.tileLayer`, `L.geoJSON`, `L.marker`, `L.divIcon`, `L.popup`, plugins like `leaflet.markercluster` and `@maplibre/maplibre-gl-leaflet`). All generated code must be 100% native Leaflet code.
 * **MapTiler as Data Source:** MapTiler Cloud provides high-DPI raster XYZ tiles (512px with `zoomOffset: -1`), vector styles via `@maplibre/maplibre-gl-leaflet`, geocoding, and static maps.
-* **Upstream Reference Authority:** All MapTiler tile URLs, style IDs, and vector tile schemas conform to the authoritative specifications established in the [maptiler/maptiler-skills](https://github.com/maptiler/maptiler-skills) repository.
 
 ---
 

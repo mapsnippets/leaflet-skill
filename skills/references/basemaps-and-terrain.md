@@ -2,8 +2,6 @@
 
 This reference provides production-ready style JSON URLs, raster XYZ tile endpoints, and elevation/terrain configurations for Leaflet applications.
 
-> **Upstream Authority:** All MapTiler basemap styles, tile endpoints, and vector tile schemas conform to the official definitions in the [`maptiler/maptiler-skills`](https://github.com/maptiler/maptiler-skills) reference repository.
-
 ---
 
 ## 1. Vector Map Styles (`style.json`)

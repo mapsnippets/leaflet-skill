@@ -2,8 +2,6 @@
 
 This catalog lists the deep-dive architectural and API references available in the `leaflet-skill`.
 
-> **Upstream Authority:** All MapTiler basemap styles, tile endpoints, and vector tile schemas conform to the official definitions in the [`maptiler/maptiler-skills`](https://github.com/maptiler/maptiler-skills) reference repository.
-
 ---
 
 ## 📑 Complete Catalog
