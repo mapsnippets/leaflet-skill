@@ -280,4 +280,9 @@ Leaflet isolates layer rendering into dedicated DOM container elements (`panes`)
 | `tooltipPane` | `650` | DOM Elements | `L.Tooltip` text badges. |
 | `popupPane` | `700` | DOM Elements | `L.Popup` info cards. |
 
+### Methods for Managing Panes (`#map-pane`)
+* **`map.createPane(name, container?)`**: Creates a new map pane with the given name (if it doesn't already exist) and returns its `HTMLElement`. The pane is appended to `container` (or `mapPane` by default).
+* **`map.getPane(pane)`**: Returns the pane `HTMLElement` by name (`String`) or element reference.
+* **`map.getPanes()`**: Returns an object dictionary of all map panes keyed by their names (`{ mapPane, tilePane, overlayPane, shadowPane, markerPane, tooltipPane, popupPane, ... }`).
+
 > For advanced custom pane ordering (e.g. rendering vector labels above polygons or underneath roads), refer to [panes-and-zindex.md](panes-and-zindex.md).
