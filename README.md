@@ -96,12 +96,12 @@ Install directly from the repository:
 
 #### Windows (PowerShell)
 ```powershell
-git clone https://github.com/mapsnippets/leaflet-skill.git; mkdir "$HOME\.gemini\skills\leaflet" -Force; cp -Recurse leaflet-skill\skills\* "$HOME\.gemini\skills\leaflet\"; rm -Recurse -Force leaflet-skill
+git clone https://github.com/mapsnippets/leaflet-skill.git; mkdir "$HOME\.gemini\skills" -Force; cp -Recurse leaflet-skill\skills\leaflet "$HOME\.gemini\skills\"; rm -Recurse -Force leaflet-skill
 ```
 
 #### Linux & macOS (bash)
 ```bash
-git clone https://github.com/mapsnippets/leaflet-skill.git && mkdir -p ~/.gemini/skills/leaflet && cp -r leaflet-skill/skills/* ~/.gemini/skills/leaflet/ && rm -rf leaflet-skill
+git clone https://github.com/mapsnippets/leaflet-skill.git && mkdir -p ~/.gemini/skills && cp -r leaflet-skill/skills/leaflet ~/.gemini/skills/ && rm -rf leaflet-skill
 ```
 
 ### Cursor
@@ -109,7 +109,15 @@ git clone https://github.com/mapsnippets/leaflet-skill.git && mkdir -p ~/.gemini
 Project-scoped. Copy the skill folder into your project's skills directory:
 
 ```bash
-mkdir -p .cursor/skills && cp -r skills .cursor/skills/
+mkdir -p .cursor/skills && cp -r skills/leaflet .cursor/skills/
+```
+
+### VS Code & GitHub Copilot
+
+Project-scoped. Place the skill folder into `.agents/skills/`:
+
+```bash
+mkdir -p .agents/skills && cp -r skills/leaflet .agents/skills/
 ```
 
 ### Windsurf
@@ -117,7 +125,7 @@ mkdir -p .cursor/skills && cp -r skills .cursor/skills/
 Project-scoped, read by Cascade:
 
 ```bash
-mkdir -p .windsurf/skills && cp -r skills .windsurf/skills/
+mkdir -p .windsurf/skills && cp -r skills/leaflet .windsurf/skills/
 ```
 
 ---
@@ -131,9 +139,12 @@ mkdir -p .windsurf/skills && cp -r skills .windsurf/skills/
   marketplace.json    — Claude Code marketplace manifest
   plugin.json         — Claude Code plugin manifest
 skills/
-  SKILL.md          — Main skill prompt entry point
-    references/       — Deep technical reference guides (loaded on demand)
-README.md             — This guide
+  leaflet/
+    SKILL.md          — Main skill prompt entry point & progressive disclosure router
+    evals/            — Standard benchmark evaluation suites (agentskills.io spec)
+    examples/         — 28 standalone runnable task examples (HTML/CSS/JS)
+    references/       — 19 deep technical reference guides & API specifications
+README.md             — Documentation & installation guide
 LICENSE.md            — MIT License
 ```
 

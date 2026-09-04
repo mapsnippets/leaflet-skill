@@ -1,0 +1,31 @@
+{
+  "skill_name": "leaflet",
+  "version": "1.0.0",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create an interactive Leaflet map displaying MapTiler high-DPI 512px raster tiles with copyright attributions.",
+      "expected_output": "A complete HTML page importing Leaflet 1.9.4 CSS and JS, with an explicit 100vh map container, initializing L.map with center in [lat, lng] format, adding L.tileLayer with tileSize: 512, zoomOffset: -1, and official MapTiler attributions."
+    },
+    {
+      "id": 2,
+      "prompt": "Build an interactive GeoJSON choropleth map in Leaflet with custom quantile color buckets, dynamic legend control, and hover tooltip highlight.",
+      "expected_output": "A complete HTML file loading a polygon GeoJSON dataset, a getColor helper function mapping density values to color hex codes, L.geoJSON with style and onEachFeature mouseover/mouseout listeners, and an L.control legend."
+    },
+    {
+      "id": 3,
+      "prompt": "Create a Leaflet map clustering 1,000 store locations using leaflet.markercluster with custom popup cards.",
+      "expected_output": "A standalone page loading Leaflet 1.9.4 and leaflet.markercluster, initializing L.markerClusterGroup(), adding markers with L.marker and bindPopup, and adding the cluster group to the map."
+    },
+    {
+      "id": 4,
+      "prompt": "Implement an animated marching ant polyline route in Leaflet using leaflet-ant-path.",
+      "expected_output": "A web page loading Leaflet and leaflet-ant-path plugin, instantiating L.polyline.antPath with GPS coordinates, configuring pulseColor, delay, dashArray, and adding to the map."
+    },
+    {
+      "id": 5,
+      "prompt": "Create an interactive dual-layer split screen comparison slider in Leaflet using leaflet-side-by-side.",
+      "expected_output": "A web page with two L.tileLayer instances (streets and satellite), loading leaflet-side-by-side plugin, calling L.control.sideBySide(leftLayer, rightLayer).addTo(map)."
+    }
+  ]
+}
