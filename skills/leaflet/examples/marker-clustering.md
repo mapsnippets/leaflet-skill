@@ -44,7 +44,7 @@ import 'leaflet.markercluster';
 
 const apiKey = 'YOUR_MAPTILER_API_KEY';
 
-const map = L.map('map').setView([50.0755, 14.4378], 12);
+const map = L.map('map', { maxZoom: 19 }).setView([50.0755, 14.4378], 12);
 
 L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiKey}`, {
   tileSize: 512, zoomOffset: -1, minZoom: 2, maxZoom: 19,
@@ -53,6 +53,7 @@ L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiK
 
 // 1. Configure High-Performance Cluster Group
 const markers = L.markerClusterGroup({
+  maxZoom: 19,
   maxClusterRadius: 60,
   spiderfyOnMaxZoom: true,
   showCoverageOnHover: false,

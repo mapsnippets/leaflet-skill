@@ -223,7 +223,30 @@ marker.on('click', async () => {
   const response = await fetch(`/api/sensor/${id}`);
   const data = await response.json();
 
-  popup.setContent(`<strong>${data.name}</strong><p>Temp: ${data.temp}°C</p>`);
-  popup.update(); // Recalculates tip anchor and pan alignment
-});
 ```
+
+---
+
+## 13. "Map has no maxZoom specified" with `L.maplibreGL` & Plugins (e.g. MarkerCluster)
+
+* **Problem:** Adding `L.markerClusterGroup` or third-party plugins to a map throws:
+  `Uncaught Map has no maxZoom specified (MarkerClusterGroup.js:593)`
+  Unlike raster `L.tileLayer`, `L.maplibreGL` is an overlay layer hosting a WebGL canvas and does not populate `map.options.maxZoom`. Therefore, `map.getMaxZoom()` returns `Infinity`, triggering plugin validation errors.
+* **Fix:** Explicitly define `{ maxZoom: 19 }` on `L.map` and/or pass `{ maxZoom: 19 }` to `L.markerClusterGroup`:
+```javascript
+// Always pass maxZoom on L.map when using vector basemaps
+const map = L.map('map', { maxZoom: 19 }).setView([51.5072, -0.1276], 12);
+
+L.maplibreGL({
+  style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY'
+}).addTo(map);
+
+// MarkerClusterGroup safely reads maxZoom from map
+const markers = L.markerClusterGroup({
+  maxZoom: 19,
+  maxClusterRadius: 50,
+  spiderfyOnMaxZoom: true
+});
+map.addLayer(markers);
+```
+

@@ -77,7 +77,8 @@ Follow these rules on every Leaflet code generation to prevent bugs:
   <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
   ```
   ```javascript
-  const map = L.map('map').setView([50.0755, 14.4378], 13);
+  // Always specify maxZoom: 19 when using vector basemaps to support plugins like MarkerCluster
+  const map = L.map('map', { maxZoom: 19 }).setView([50.0755, 14.4378], 13);
 
   // Vector Basemap (Default Standard)
   L.maplibreGL({
@@ -99,6 +100,12 @@ Follow these rules on every Leaflet code generation to prevent bugs:
   }).addTo(map);
   ```
 * ⚠️ **CRITICAL GOTCHA: NEVER use `/512/` in the raster URL path** — `.../maps/streets-v4/512/...` is **INVALID** on MapTiler Cloud. 512px tiles have no size prefix in their path.
+
+### 6. 🔍 Explicit `maxZoom` on `L.map` for Vector Basemaps & Plugins
+* When using `L.maplibreGL`, the underlying WebGL canvas does not define raster tile layer zoom constraints on Leaflet's `map.options`. Consequently, `map.getMaxZoom()` returns `Infinity`.
+* Standard Leaflet plugins—most notably `leaflet.markercluster` (`MarkerClusterGroup.js`)—inspect `map.getMaxZoom()` during `onAdd` and will throw an uncaught exception:
+  `Uncaught Map has no maxZoom specified`
+* **Rule:** Always initialize `L.map('map', { maxZoom: 19 })` (and pass `{ maxZoom: 19 }` to plugins like `L.markerClusterGroup({ maxZoom: 19 })`) whenever using vector basemaps.
 
 
 ---
