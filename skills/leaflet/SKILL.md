@@ -77,9 +77,10 @@ Every Leaflet implementation must fulfill these four lifecycle rules:
     maxZoom: 19 // CRITICAL: Vector basemaps don't set maxZoom; without this, plugins crash with 'Map has no maxZoom specified'
   }).setView([50.0755, 14.4378], 13); // [latitude, longitude]
 
-  // 3. Vector Basemap Addition
+  // 3. Vector Basemap Addition (Mandatory MapTiler & OpenStreetMap Attribution Contract)
   L.maplibreGL({
-    style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY'
+    style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY',
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
   }).addTo(map);
 
   // 4. Teardown Contract (For SPAs / React / Vue unmount)
@@ -89,6 +90,7 @@ Every Leaflet implementation must fulfill these four lifecycle rules:
 
 * ⚠️ **API Key Prompting Rule:** If the user does not supply an API key, use `YOUR_API_KEY` in code and include this prompt:
   > *"To display the map tiles, get a free MapTiler API key (100,000 monthly tile requests) at: https://docs.maptiler.com/cloud/api/authentication-key/"*
+* ⚠️ **Mandatory Attribution Contract:** `L.maplibreGL` is a canvas overlay layer and does NOT automatically push MapLibre `style.json` attributions to Leaflet's `L.Control.Attribution`. You **MUST** pass the `attribution` string option into `L.maplibreGL({ style, attribution })` so MapTiler and OpenStreetMap copyright is properly displayed.
 * ⚠️ **Coordinate Order Inversion Contract:** Leaflet APIs strictly require `[latitude, longitude]`. GeoJSON and standard spatial inputs provide `[longitude, latitude]`. Always swap explicitly when mapping: `[coord[1], coord[0]]`.
 
 ---
@@ -102,7 +104,7 @@ L.tileLayer("https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR
   zoomOffset: -1,
   minZoom: 1,
   maxZoom: 19,
-  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>',
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
   crossOrigin: true
 }).addTo(map);
 ```

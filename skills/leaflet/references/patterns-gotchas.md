@@ -238,7 +238,8 @@ marker.on('click', async () => {
 const map = L.map('map', { maxZoom: 19 }).setView([51.5072, -0.1276], 12);
 
 L.maplibreGL({
-  style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY'
+  style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY',
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 }).addTo(map);
 
 // MarkerClusterGroup safely reads maxZoom from map
@@ -248,5 +249,19 @@ const markers = L.markerClusterGroup({
   spiderfyOnMaxZoom: true
 });
 map.addLayer(markers);
+```
+
+---
+
+## 14. Missing MapTiler & OpenStreetMap Attributions with `L.maplibreGL`
+
+* **Problem:** Leaflet's default attribution control in the bottom-right corner displays only "Leaflet", completely omitting the required MapTiler and OpenStreetMap copyright attributions.
+  `L.maplibreGL` renders the MapLibre style on an internal canvas layer and does **not** automatically parse or forward the style's attribution metadata into Leaflet's `L.Control.Attribution`.
+* **Fix:** Always explicitly pass the `attribution` string option directly to `L.maplibreGL({ style, attribution })`:
+```javascript
+L.maplibreGL({
+  style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY',
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+}).addTo(map);
 ```
 

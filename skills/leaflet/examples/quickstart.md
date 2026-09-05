@@ -56,11 +56,12 @@ const map = L.map('map', {
 
 // 2. Add crisp, zoom-independent vector basemap via MapLibre GL Leaflet plugin (Default)
 L.maplibreGL({
-  style: `https://api.maptiler.com/maps/streets-v4/style.json?key=${apiKey}`
+  style: `https://api.maptiler.com/maps/streets-v4/style.json?key=${apiKey}`,
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
 }).addTo(map);
 
 // (Optional Fallback: Raster tiles used only if specifically requested or for satellite imagery)
-// L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiKey}`, { tileSize: 512, zoomOffset: -1 }).addTo(map);
+// L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiKey}`, { tileSize: 512, zoomOffset: -1, attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' }).addTo(map);
 
 // 3. Add a standard marker with a popup
 const marker = L.marker([51.5, -0.09])
