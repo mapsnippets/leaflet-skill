@@ -10,7 +10,9 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 | Topic Area | Directory / Prefix | Contents |
 | :--- | :--- | :--- |
-| **Task Examples** | **[examples/INDEX.md](../examples/INDEX.md)** | **atomic runnable recipes** with full HTML, CSS, and native JS across Markers, Clusters, Choropleths, Panes, WMS, COG, and CAD |
+| **Official API Docs** | **[references/api-catalog.md](api-catalog.md)** | **Exhaustive catalog of all 55 official Leaflet classes & modules** linking to [`leafletjs.com/reference.html`](https://leafletjs.com/reference.html) |
+| **Task Examples** | **[examples/INDEX.md](../examples/INDEX.md)** | **28 atomic runnable recipes** with full HTML, CSS, and native JS across Markers, Clusters, Choropleths, Panes, WMS, COG, and CAD |
+| **Official Tutorials**| **[references/examples-catalog.md](examples-catalog.md)** | Full index of all official Leaflet tutorials cross-referenced to standalone recipes |
 | **Core API & Map** | `references/api-map.md`, `references/api-layers-controls-base.md` | `L.Map` options, camera navigation, event models, container lifecycle |
 | **Layers & Media** | `references/api-raster-and-vector-layers.md`, `references/geojson-*` | `TileLayer`, `TileLayer.WMS`, `ImageOverlay`, `VideoOverlay`, `Path`, `GeoJSON` |
 | **UI & Overlays** | `references/api-ui-layers.md`, `references/panes-and-zindex.md` | `L.Marker`, `L.Popup`, `L.Tooltip`, `L.Icon`, `L.DivIcon`, Custom DOM panes |
@@ -22,6 +24,7 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 ## 📑 Complete Reference Catalog (`references/`)
 
 ### 1. Core API Specifications & Guides
+* **[api-catalog.md](api-catalog.md)** — **Exhaustive official Leaflet API directory** (55 classes, layers, UI controls, geometries) linking directly to [`leafletjs.com/reference.html`](https://leafletjs.com/reference.html).
 * **[api-map.md](api-map.md)** — `L.Map` options, camera physics (`flyTo`, `fitBounds`), coordinates, and container lifecycle (`invalidateSize`).
 * **[api-raster-and-vector-layers.md](api-raster-and-vector-layers.md)** — Raster tiles, WMS, image/video overlays, vector paths, GeoJSON, and SVG vs Canvas renderers.
 * **[api-ui-layers.md](api-ui-layers.md)** — Markers, popups, tooltips, custom icons, radar beacons, and bundler asset resolution.

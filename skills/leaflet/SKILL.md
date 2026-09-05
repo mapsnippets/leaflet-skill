@@ -120,6 +120,7 @@ All task examples are self-contained with complete HTML, CSS, and native Leaflet
 
 Deep architectural and schema reference files live under `references/` and should be loaded on demand:
 - [references/INDEX.md](references/INDEX.md) — Master catalog of all API specs, practical guides, and schemas.
+- [references/api-catalog.md](references/api-catalog.md) — **Official Leaflet API Directory** (55 classes, layers, UI controls, geometries mapped to `leafletjs.com/reference.html`).
 - [references/api-map.md](references/api-map.md) — Complete `L.Map` options, state modification (`setView`, `fitBounds`, `flyTo`, `invalidateSize`), coordinate conversions, and map properties/panes.
 - [references/api-ui-layers.md](references/api-ui-layers.md) — `L.Marker`, `L.Popup`, `L.Tooltip`, `L.Icon`, `L.Icon.Default`, `L.DivIcon`.
 - [references/api-raster-and-vector-layers.md](references/api-raster-and-vector-layers.md) — `L.TileLayer`, `L.TileLayer.WMS`, `L.ImageOverlay`, `L.VideoOverlay`, `L.SVGOverlay`, `L.Path`, `L.Polyline`, `L.Polygon`, `L.Circle`, `L.CircleMarker`, `L.Rectangle`, `L.SVG`, `L.Canvas`.
