@@ -986,3 +986,117 @@ All label layers (`*_label`, `place_label`, `poi_*`, `water_name`, `road_label`)
   ['get', 'name']
 ]
 ```
+
+---
+
+## 11. MapTiler Countries Vector Tile Schema (`schema/countries/`)
+
+MapTiler provides a dedicated global vector tileset for sovereign nations, administrative subdivisions, and postal boundaries. This tileset is the standard, library-agnostic data source for thematic choropleth maps, regional dashboards, boundary highlighting, and geographic statistics across **MapLibre, Leaflet, and OpenLayers**.
+
+### Tileset TileJSON Endpoint:
+```text
+https://api.maptiler.com/tiles/countries/tiles.json?key=YOUR_MAPTILER_API_KEY
+```
+* **Raw Tile URL Template**: `https://api.maptiler.com/tiles/countries/{z}/{x}/{y}.pbf?key=YOUR_MAPTILER_API_KEY`
+* **Tile Format**: Mapbox Vector Tile (`.pbf` MVT protobuf v2.1)
+* **Zoom Range**: Zoom `0` to `11`
+* **Projection**: Spherical Mercator (`EPSG:3857`)
+* **Source Layers**: `administrative`, `postal`
+
+---
+
+### `source-layer: 'administrative'`
+> **Layer containing national sovereign borders and first-level regional administrative subdivisions.**  
+* **Geometry**: `Polygon` / `MultiPolygon` | **Zoom Range**: `z0` to `z11`
+
+| Field Name | Type | Description |
+| :--- | :--- | :--- |
+| **`gid`** | Integer | Unique global numeric identifier for the geographic feature. |
+| **`level`** | Integer | Administrative hierarchy level:<br>• `0`: Sovereign nation / country / state (e.g., France, Germany, USA).<br>• `1`: First-level administrative subdivision (e.g., US State, German Bundesland, French Region). |
+| **`level_0`** | String | ISO 3166-1 alpha-2 code of the parent sovereign nation (e.g., `'NL'`, `'US'`, `'DE'`). |
+| **`iso_a2`** | String | Country code in ISO 3166-1 alpha-2 format (e.g., `'NL'`, `'BE'`, `'GB'`, `'FR'`). |
+| **`code`** | String | Country code in ISO 3166-1 alpha-3 format (e.g., `'NLD'`, `'BEL'`, `'GBR'`, `'FRA'`). |
+| **`name`** | String | Primary localized name of the country or administrative entity. |
+| **`name:en`** | String | Official English name translation. |
+| **`name:{code}`** | String | Localized translations into specific languages (`name:de`, `name:es`, `name:fr`, etc.). |
+| **`area`** | Number | Land surface area of the entity in square kilometers (km²). |
+| **`continent`** | String | Continent designation (e.g., `'Europe'`, `'North America'`, `'Asia'`). |
+| **`wikidata`** | String | Permanent Wikidata QID entity identifier (e.g., `'Q55'` for Netherlands, `'Q183'` for Germany). |
+
+---
+
+### `source-layer: 'postal'`
+> **Layer containing postal code boundaries and regional post zones.**  
+* **Geometry**: `Polygon` / `MultiPolygon` | **Zoom Range**: `z0` to `z11`
+* **Attributes**: `gid`, `level`, `iso_a2`, `code`, `name`, `area`, `level_0`, `level_1`, `level_2`.
+
+---
+
+### 🍃 Consuming MapTiler Countries Schema in Leaflet
+
+In Leaflet applications, developers consume the MapTiler Countries Schema through three primary architectural patterns:
+
+#### Pattern 1: Native Vector Grid (`leaflet.vectorgrid`)
+Directly consume the `.pbf` tileset without client-side GeoJSON parsing:
+```javascript
+import L from 'leaflet';
+import 'leaflet.vectorgrid';
+
+const pbfUrl = `https://api.maptiler.com/tiles/countries/{z}/{x}/{y}.pbf?key=${KEY}`;
+
+const vectorGrid = L.vectorGrid.protobuf(pbfUrl, {
+  vectorTileLayerStyles: {
+    administrative: (properties, zoom) => {
+      // Access MapTiler Schema properties directly:
+      if (properties.level !== 0) return []; // Filter to sovereign nations
+      const iso = properties.iso_a2;
+      const density = countryStats[iso]?.density || 0;
+      return {
+        fill: true,
+        fillColor: getColor(density),
+        fillOpacity: 0.78,
+        weight: 1,
+        color: 'rgba(255, 255, 255, 0.4)'
+      };
+    }
+  },
+  interactive: true
+}).addTo(map);
+
+vectorGrid.on('click', (e) => {
+  const p = e.layer.properties;
+  L.popup()
+    .setLatLng(e.latlng)
+    .setContent(`<b>${p['name:en'] || p.name} (${p.iso_a2})</b><br>Area: ${Number(p.area).toLocaleString()} km²`)
+    .openOn(map);
+});
+```
+
+#### Pattern 2: Via `@maplibre/maplibre-gl-leaflet`
+Render the full vector style with WebGL hardware acceleration inside Leaflet:
+```javascript
+import L from 'leaflet';
+import '@maplibre/maplibre-gl-leaflet';
+
+L.maplibreGL({
+  style: `https://api.maptiler.com/maps/dataviz-v4-light/style.json?key=${KEY}`
+}).addTo(map);
+```
+
+#### Pattern 3: Via Standard GeoJSON adhering to MapTiler Schema
+When loading administrative GeoJSON datasets following the MapTiler Schema:
+```javascript
+L.geoJSON(countriesGeoJson, {
+  style: (feature) => ({
+    fillColor: getColor(feature.properties.density),
+    weight: 1,
+    color: 'rgba(255, 255, 255, 0.4)',
+    fillOpacity: 0.78
+  }),
+  onEachFeature: (feature, layer) => {
+    const p = feature.properties;
+    layer.bindPopup(`<b>${p.name} (${p.iso_a2})</b><br>Code: ${p.code}<br>Area: ${Number(p.area).toLocaleString()} km²`);
+  }
+}).addTo(map);
+```
+
