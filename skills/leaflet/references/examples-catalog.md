@@ -27,56 +27,56 @@
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Vector Map Quickstart** | `L.map`, `@maplibre/maplibre-gl-leaflet`, MapTiler `streets-v4`. | [`quickstart-map.md`](../examples/quickstart-map.md) |
-| **High-Performance Vector Tiles** | WebGL vector basemap rendering inside standard Leaflet. | [`vector-tiles-maptiler.md`](../examples/vector-tiles-maptiler.md) |
-| **Layer Group Switcher** | Dynamic basemap & overlay toggle via `L.control.layers`. | [`layer-groups-control.md`](../examples/layer-groups-control.md) |
-| **Fractional Zoom Levels** | Fine-grained zoom animation via `zoomSnap: 0.25`, `zoomDelta: 0.5`. | [`fractional-zoom-display.md`](../examples/fractional-zoom-display.md) |
-| **Mobile Geolocation Tracking** | `map.locate({ setView: true, watch: true })` with accuracy circle. | [`mobile-touch-events.md`](../examples/mobile-touch-events.md) |
-| **Accessible Screen-Reader Map** | Full keyboard focus trapping, ARIA roles, and tab index order. | [`accessible-map.md`](../examples/accessible-map.md) |
-| **Multi-Language Basemap** | MapTiler vector basemap with dynamic language localization. | [`multilingual-map.md`](../examples/multilingual-map.md) |
-| **Non-Geographical Pixel CRS** | High-resolution image/game plan navigation with `L.CRS.Simple`. | [`non-geographical-crs-simple.md`](../examples/non-geographical-crs-simple.md) |
+| **Vector Map Quickstart** | `L.map`, `@maplibre/maplibre-gl-leaflet`, MapTiler `streets-v4`. | [`quickstart.md`](../examples/quickstart.md) |
+| **High-DPI Retina Tiles** | High-DPI 512px `@2x` raster tiles with `detectRetina: true`. | [`retina-hidpi-tiles.md`](../examples/retina-hidpi-tiles.md) |
+| **Layer Group Switcher** | Dynamic basemap & overlay toggle via `L.control.layers`. | [`layers-control.md`](../examples/layers-control.md) |
+| **Fractional Zoom Levels** | Fine-grained zoom animation via `zoomSnap: 0.25`, `zoomDelta: 0.5`. | [`zoom-levels.md`](../examples/zoom-levels.md) |
+| **Mobile Geolocation Tracking** | `map.locate({ setView: true, watch: true })` with accuracy circle. | [`mobile-geolocation.md`](../examples/mobile-geolocation.md) |
+| **Accessible Screen-Reader Map** | Full keyboard focus trapping, ARIA roles, and tab index order. | [`accessibility-aria.md`](../examples/accessibility-aria.md) |
+| **Non-Geographical Pixel CRS** | High-resolution image/game plan navigation with `L.CRS.Simple`. | [`crs-simple.md`](../examples/crs-simple.md) |
 
 ### 📁 Category 2: GeoJSON, Vector Styling & Choropleths
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Data-Driven Choropleth** | Population density classification with dynamic hover state info box. | [`interactive-choropleth.md`](../examples/interactive-choropleth.md) |
-| **GeoJSON Polygon Styling** | Interactive hover highlights, feature filtering, and click zooms. | [`geojson-polygon-styling.md`](../examples/geojson-polygon-styling.md) |
-| **Animated Polylines (Ant Path)** | Pulsing marching-ants SVG stroke dash animation on routes. | [`animated-polyline-antpath.md`](../examples/animated-polyline-antpath.md) |
-| **GPS Elevation Profile** | Parsing GPX/GeoJSON tracks with elevation profile charts. | [`gpx-elevation-profile.md`](../examples/gpx-elevation-profile.md) |
-| **Spatial GeoJSON Tooltip** | Lightweight coordinate & attribute tooltips via `L.tooltip`. | [`spatial-tooltip.md`](../examples/spatial-tooltip.md) |
+| **Data-Driven Choropleth** | Population density classification with dynamic hover state info box. | [`geojson-choropleth.md`](../examples/geojson-choropleth.md) |
+| **Animated Polylines (Ant Path)** | Pulsing marching-ants SVG stroke dash animation on routes. | [`animated-polyline-ant-path.md`](../examples/animated-polyline-ant-path.md) |
+| **GPS Track & Waypoint Viewer** | Parsing GPX/GeoJSON tracks with elevation and waypoint styling. | [`gpx-track-viewer.md`](../examples/gpx-track-viewer.md) |
 
 ### 📁 Category 3: Markers, Icons & Clustering
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Custom HTML Radar Markers** | DOM markers using `L.divIcon` with pulsating CSS radar waves. | [`custom-marker-icons.md`](../examples/custom-marker-icons.md) |
-| **High-Density Clustering** | 50,000+ points clustered with `leaflet.markercluster` & spiders. | [`marker-clustering-large-dataset.md`](../examples/marker-clustering-large-dataset.md) |
-| **Rotating Heading Markers** | Continuous marker rotation tracking vehicle/vessel heading. | [`rotating-heading-markers.md`](../examples/rotating-heading-markers.md) |
-| **Draggable Geocoding Marker** | Reverse geocoding marker with real-time address updates. | [`draggable-reverse-geocoding-marker.md`](../examples/draggable-reverse-geocoding-marker.md) |
-| **Bouncing Drop Animation** | Physics-based marker drop animation on viewport initialization. | [`bouncing-marker-drop.md`](../examples/bouncing-marker-drop.md) |
+| **Custom Icons & Anchors** | Subclassing `L.Icon` with retina support, anchor points, and offsets. | [`custom-icons.md`](../examples/custom-icons.md) |
+| **Custom HTML Radar Markers** | DOM markers using `L.divIcon` with pulsating CSS radar waves. | [`custom-radar-pulse-marker.md`](../examples/custom-radar-pulse-marker.md) |
+| **High-Density Clustering** | 50,000+ points clustered with `leaflet.markercluster` & spiders. | [`marker-clustering.md`](../examples/marker-clustering.md) |
+| **Rotating Heading Markers** | Continuous marker rotation tracking vehicle/vessel heading. | [`rotating-marker-heading.md`](../examples/rotating-marker-heading.md) |
 
 ### 📁 Category 4: CAD Digitization & Geometry Editing
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Geoman GIS Drawing Toolbar** | Polygon, rectangle, circle, and cut tools via `@geoman-io`. | [`geoman-drawing-toolbar.md`](../examples/geoman-drawing-toolbar.md) |
-| **Geodesic Path Ruler** | Click-to-measure geodesic distance and polygon area calculator. | [`click-to-measure-distance.md`](../examples/click-to-measure-distance.md) |
-| **Interactive Bounding Box Filter** | Rubber-band rectangle drag selection querying vector features. | [`bounding-box-filter.md`](../examples/bounding-box-filter.md) |
+| **Geoman GIS Drawing Toolbar** | Complete vector digitization (drawing, editing, cutting polygons). | [`geoman-geometry-editing.md`](../examples/geoman-geometry-editing.md) |
+| **Interactive Measure Tool** | Interactive geodesic distance and polygon area measurement control. | [`interactive-measure-tool.md`](../examples/interactive-measure-tool.md) |
+| **Geodesic Path & Spherical Distance** | Great-circle navigation curves and spherical geodesic calculations. | [`geodesic-measure.md`](../examples/geodesic-measure.md) |
 
 ### 📁 Category 5: Imagery, Overlays, WMS & Vector Tiles
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Georeferenced Drone Orthophoto** | Anchoring high-resolution aerial imagery using `L.imageOverlay`. | [`image-overlay.md`](../examples/image-overlay.md) |
-| **Georeferenced Video Stream** | Synchronizing looping MP4 drone footage with `L.videoOverlay`. | [`video-overlay.md`](../examples/video-overlay.md) |
-| **Enterprise OGC WMS Layer** | Direct integration of NOAA/radar WMS layers using `L.tileLayer.wms`. | [`wms-environmental-layers.md`](../examples/wms-environmental-layers.md) |
-| **Client-Side GeoTIFF (COG)** | In-browser GeoTIFF raster parsing with `georaster-layer-for-leaflet`.| [`cog-geotiff-rendering.md`](../examples/cog-geotiff-rendering.md) |
+| **Architectural Floorplan Overlay** | Anchoring high-resolution CAD/floorplan raster with `L.imageOverlay`. | [`image-overlay-floorplan.md`](../examples/image-overlay-floorplan.md) |
+| **Enterprise OGC WMS Layer** | Direct integration of NOAA/radar WMS layers using `L.tileLayer.wms`. | [`wms-layers.md`](../examples/wms-layers.md) |
+| **WMS GetFeatureInfo on Click** | Interactive attribute queries from remote WMS service on click. | [`wms-getfeatureinfo-click.md`](../examples/wms-getfeatureinfo-click.md) |
+| **Client-Side GeoTIFF (COG)** | In-browser GeoTIFF raster parsing with `georaster-layer-for-leaflet`.| [`geotiff-raster-layer.md`](../examples/geotiff-raster-layer.md) |
+| **Binary Vector Tiles (MVT)** | Native Canvas rendering of Mapbox Vector Tiles via `VectorGrid`. | [`vector-grid-mvt.md`](../examples/vector-grid-mvt.md) |
 
 ### 📁 Category 6: Controls, Custom Panes & UX Interactions
 
 | Task & Architecture | Primary APIs & Techniques | Production Recipe |
 | :--- | :--- | :--- |
-| **Custom Stacking Panes (Z-Index)** | Isolating labels above vector overlays via `map.createPane()`. | [`custom-map-panes.md`](../examples/custom-map-panes.md) |
-| **Split-Screen Map Swipe** | Synchronized side-by-side layer swipe slider using `leaflet-side-by-side`. | [`split-screen-swipe.md`](../examples/split-screen-swipe.md) |
-| **Export Map to High-Res Image** | Full client-side map canvas screenshot export via `leaflet-image`. | [`export-map-canvas-image.md`](../examples/export-map-canvas-image.md) |
+| **Custom Stacking Panes (Z-Index)** | Isolating labels above vector overlays via `map.createPane()`. | [`map-panes.md`](../examples/map-panes.md) |
+| **Split-Screen Map Swipe** | Synchronized side-by-side layer swipe slider using `side-by-side`. | [`side-by-side.md`](../examples/side-by-side.md) |
+| **Fullscreen Map Toggle** | Responsive fullscreen viewport toggle control. | [`fullscreen-toggle.md`](../examples/fullscreen-toggle.md) |
+| **Point Density Heatmap** | Continuous heat density rendering with WebGL / `simpleheat`. | [`heatmaps.md`](../examples/heatmaps.md) |
+| **Corner Mini-Map Overview** | Synchronized overview locator map in the viewport corner. | [`minimap-overview.md`](../examples/minimap-overview.md) |
+| **Custom Subclassed Control** | Custom map control subclassing `L.Control.extend` with propagation stops. | [`custom-control.md`](../examples/custom-control.md) |

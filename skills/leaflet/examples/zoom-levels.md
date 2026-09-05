@@ -62,7 +62,7 @@ const map = L.map('map', {
   wheelPxPerZoomLevel: 120,
   minZoom: 2,
   maxZoom: 20
-}).setView([14.4378, 50.0755], 12.5);
+}).setView([50.0755, 14.4378], 12.5);
 
 L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`, {
   tileSize: 512,

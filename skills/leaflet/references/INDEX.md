@@ -28,14 +28,17 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 * **[api-map.md](api-map.md)** — `L.Map` options, camera physics (`flyTo`, `fitBounds`), coordinates, and container lifecycle (`invalidateSize`).
 * **[api-raster-and-vector-layers.md](api-raster-and-vector-layers.md)** — Raster tiles, WMS, image/video overlays, vector paths, GeoJSON, and SVG vs Canvas renderers.
 * **[api-ui-layers.md](api-ui-layers.md)** — Markers, popups, tooltips, custom icons, radar beacons, and bundler asset resolution.
+* **[api-utility-types-misc.md](api-utility-types-misc.md)** — Basic types (`LatLng`, `LatLngBounds`, `Point`), DOM utilities, browser sniffing, and transformation functions.
 * **[panes-and-zindex.md](panes-and-zindex.md)** — Custom DOM pane architecture, z-index stacking hierarchy, and pointer-events isolation.
-* **[examples-catalog.md](examples-catalog.md)** — API-to-Recipe directory cross-referencing all Leaflet APIs to the 29 standalone task recipes.
+* **[examples-catalog.md](examples-catalog.md)** — API-to-Recipe directory cross-referencing all Leaflet APIs to the 28 standalone task recipes.
 * **[patterns-gotchas.md](patterns-gotchas.md)** — Solutions for the top 12 Leaflet production traps (lat/lng inversion, grey tiles, 512px retina scaling, memory leaks).
 * **[plugins-catalog.md](plugins-catalog.md)** — Recipes and installation for the top 13 community plugins (Geoman, MarkerCluster, AntPath, Side-by-Side).
+* **[vector-tiles-and-plugins.md](vector-tiles-and-plugins.md)** — Vector tile integration via MapLibre GL Leaflet and Leaflet.VectorGrid.
 * **[marker-clustering.md](marker-clustering.md)** — High-performance point density clustering with `Leaflet.markercluster`.
 * **[geojson-and-markers.md](geojson-and-markers.md)** — GeoJSON data-driven styling, popups, and hover highlight patterns.
 * **[events.md](events.md)** — Map lifecycle, mouse/touch interaction, layer events, and DOM propagation stopping.
 * **[frameworks.md](frameworks.md)** — Integrating Leaflet in React 18, Next.js (SSR bypass), Vue 3, and Svelte.
+* **[installation-and-cdn.md](installation-and-cdn.md)** — NPM package setup, bundler configuration (Vite, Webpack), CDN script tags, and CSS asset linking.
 * **[prompt-benchmarks.md](prompt-benchmarks.md)** — Standardized Leaflet evaluation prompts and architectural patterns.
 
 ### 2. Basemaps, Schemas & Services

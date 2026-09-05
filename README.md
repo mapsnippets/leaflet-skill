@@ -119,7 +119,7 @@ mapsnippets/leaflet-skill/
 │       ├── SKILL.md        — Entry point prompt & router (< 200 lines)
 │       ├── evals/
 │       │   └── evals.json  — Machine-readable evaluation benchmarks
-│       ├── examples/       — 29 standalone runnable recipes
+│       ├── examples/       — 28 standalone runnable recipes
 │       │   ├── INDEX.md    — Curated catalog of all recipes
 │       │   └── ...         — Vector tiles, clustering, GeoJSON, WMS
 │       └── references/     — 21 deep technical reference guides & APIs
