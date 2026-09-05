@@ -18,7 +18,7 @@ A complete step-by-step implementation of Leaflet basics: setting up a map, addi
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <!-- MapLibre GL CSS (for vector tiles) -->
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" />
   <style>
     body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     #map { width: 100vw; height: 100vh; }
@@ -29,7 +29,7 @@ A complete step-by-step implementation of Leaflet basics: setting up a map, addi
 <body>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
   <script src="main.js"></script>
 </body>
