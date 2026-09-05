@@ -4,9 +4,9 @@ This reference provides production-ready style JSON URLs, raster XYZ tile endpoi
 
 ---
 
-## 1. Vector Map Styles (`style.json`)
+## 1. Vector Map Styles (`style.json`) — Default Standard
 
-For zoom-independent vector tiles with zero pixelation in Leaflet, use `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`):
+For crisp, zoom-independent vector tiles with zero pixelation in Leaflet, always use `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) by default:
 
 ```javascript
 L.maplibreGL({
@@ -38,9 +38,9 @@ L.maplibreGL({
 
 ---
 
-## 2. High-DPI Raster Tiles (512×512 Default)
+## 2. High-DPI Raster Tiles (Fallback when Specifically Requested or for Satellite)
 
-Standard Leaflet raster tile implementation using `L.tileLayer`. When loading 512px tiles in Leaflet, always set `tileSize: 512` and `zoomOffset: -1` to align zoom calculations:
+Standard Leaflet raster tile implementation using `L.tileLayer`. Use this **only if** specifically requested by the user (e.g. non-WebGL environments) or for satellite imagery (`satellite-v4`). When loading 512px tiles in Leaflet, always set `tileSize: 512` and `zoomOffset: -1` to align zoom calculations:
 
 ```javascript
 // Standard 512px raster tiles

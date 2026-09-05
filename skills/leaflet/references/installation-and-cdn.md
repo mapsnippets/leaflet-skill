@@ -18,16 +18,11 @@ Include Leaflet CSS in the `<head>` and Leaflet JS right before closing `</body>
   <title>Leaflet Map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 1. Leaflet CSS (Official unpkg with SRI) -->
-  <link rel="stylesheet" 
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
+  <!-- 1. Leaflet Core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <!-- 2. Leaflet JavaScript (Make sure this is after Leaflet CSS) -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-          crossorigin=""></script>
+  <!-- 2. MapLibre GL JS CSS (for vector tiles) -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
 
   <style>
     #map { height: 100vh; width: 100%; margin: 0; padding: 0; }
@@ -36,15 +31,23 @@ Include Leaflet CSS in the `<head>` and Leaflet JS right before closing `</body>
 <body>
   <div id="map"></div>
 
+  <!-- 3. Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- 4. MapLibre GL JS & Leaflet Plugin (Vector Basemap Standard) -->
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
+
   <script>
     const map = L.map('map').setView([50.0755, 14.4378], 13);
     
-    L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY', {
-      tileSize: 512,
-      zoomOffset: -1,
-      minZoom: 1,
-      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>'
+    // Crisp Vector Basemap via MapLibre GL Leaflet Plugin (Default)
+    L.maplibreGL({
+      style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY'
     }).addTo(map);
+
+    // Optional Raster Fallback (Only when specifically requested or for satellite imagery)
+    // L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY', { tileSize: 512, zoomOffset: -1 }).addTo(map);
 
     L.marker([50.0755, 14.4378]).addTo(map).bindPopup('Prague, Czechia').openPopup();
   </script>

@@ -141,7 +141,7 @@ L.maplibreGL({
 
 <br>
 
-### High-DPI Raster Tiles via `L.tileLayer`:
+### Raster Tiles Fallback via `L.tileLayer` (Only when specifically requested or for Satellite):
 
 ```javascript
 import L from "leaflet";

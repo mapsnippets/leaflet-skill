@@ -2,7 +2,7 @@
 
 > Source: https://leafletjs.com/examples/quick-start/
 
-A complete step-by-step implementation of Leaflet basics: setting up a map, adding high-DPI raster tiles, adding interactive markers, circles, and polygons, binding informative popups, and handling map click coordinates.
+A complete step-by-step implementation of Leaflet basics: setting up a map, adding crisp MapTiler Planet v4 vector tiles by default (or raster fallback), adding interactive markers, circles, and polygons, binding informative popups, and handling map click coordinates.
 
 ---
 
@@ -15,7 +15,10 @@ A complete step-by-step implementation of Leaflet basics: setting up a map, addi
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leaflet Quick Start</title>
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- MapLibre GL CSS (for vector tiles) -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
   <style>
     body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     #map { width: 100vw; height: 100vh; }
@@ -26,6 +29,8 @@ A complete step-by-step implementation of Leaflet basics: setting up a map, addi
 <body>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
@@ -37,6 +42,7 @@ A complete step-by-step implementation of Leaflet basics: setting up a map, addi
 
 ```javascript
 import L from 'leaflet';
+import '@maplibre/maplibre-gl-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const apiKey = 'YOUR_MAPTILER_API_KEY';
@@ -48,15 +54,13 @@ const map = L.map('map', {
   zoomSnap: 0.5
 });
 
-// 2. Add high-resolution MapTiler Streets v4 raster tiles (512px with zoomOffset -1)
-L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiKey}`, {
-  tileSize: 512,
-  zoomOffset: -1,
-  minZoom: 1,
-  maxZoom: 19,
-  crossOrigin: true,
-  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+// 2. Add crisp, zoom-independent vector basemap via MapLibre GL Leaflet plugin (Default)
+L.maplibreGL({
+  style: `https://api.maptiler.com/maps/streets-v4/style.json?key=${apiKey}`
 }).addTo(map);
+
+// (Optional Fallback: Raster tiles used only if specifically requested or for satellite imagery)
+// L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=${apiKey}`, { tileSize: 512, zoomOffset: -1 }).addTo(map);
 
 // 3. Add a standard marker with a popup
 const marker = L.marker([51.5, -0.09])

@@ -1,14 +1,15 @@
 ---
 name: leaflet
 description: >-
-  Expert coding skill for building lightweight, interactive web maps with Leaflet.
-  USE WHEN the user wants to create a map, add an interactive 2D map to a web or mobile
-  app, display locations or routes, build a store locator, add markers, popups, or
-  tooltips, render GeoJSON data on a map, create a choropleth map, build marker
-  clustering, add a heatmap, render vector tiles or raster tile layers, switch to
-  satellite view, handle map click or drag events, add drawing tools, integrate maps
-  in React (react-leaflet), Next.js, Vue, or Svelte, or build a lightweight mobile map.
-  Also USE WHEN the user mentions Leaflet, L.map, L.marker, L.tileLayer, or Leaflet plugins.
+  Expert coding skill for building fast, interactive web maps with Leaflet and MapTiler.
+  Defaults to crisp WebGL vector basemaps via @maplibre/maplibre-gl-leaflet (L.maplibreGL) with
+  MapTiler Planet v4 vector styles (streets-v4, outdoor-v4, dataviz-v4), using raster tiles (L.tileLayer)
+  only when specifically requested or for satellite imagery. USE WHEN the user wants to create a map,
+  add an interactive 2D map to a web or mobile app, display locations or routes, build a store locator,
+  add markers, popups, or tooltips, render GeoJSON data on a map, create a choropleth map, build marker
+  clustering, add a heatmap, handle map click or drag events, add drawing tools, integrate maps
+  in React (react-leaflet), Next.js, Vue, or Svelte.
+  Also USE WHEN the user mentions Leaflet, L.map, L.marker, L.tileLayer, L.maplibreGL, or Leaflet plugins.
 license: MIT
 metadata:
   author: mapsnippets
@@ -23,10 +24,12 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ---
 
-## ⚡ Architectural Scope & Data Reference Invariants
+## ⚡ Architectural Scope & Basemap Invariants
 
-* **Native Library Focus:** This skill focuses strictly on pure, native **Leaflet** (`L.map`, `L.tileLayer`, `L.geoJSON`, `L.marker`, `L.divIcon`, `L.popup`, plugins like `leaflet.markercluster` and `@maplibre/maplibre-gl-leaflet`). All generated code must be 100% native Leaflet code.
-* **MapTiler as Data Source:** MapTiler Cloud provides high-DPI raster XYZ tiles (512px with `zoomOffset: -1`), vector styles via `@maplibre/maplibre-gl-leaflet`, geocoding, and static maps.
+* **VECTOR BASEMAPS BY DEFAULT (`L.maplibreGL`):** Every Leaflet map implementation **MUST default to vector basemaps** using `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with MapTiler Planet v4 vector styles (`https://api.maptiler.com/maps/{style}/style.json?key=YOUR_API_KEY`).
+  - **Why Vector by Default:** Vector tiles provide crisp, resolution-independent rendering at all display resolutions, smooth fractional zooming without blurry text or pixelation, client-side dynamic restyling, and smaller network payloads.
+  - All Leaflet vector overlays, markers, popups, tooltips, GeoJSON layers, polylines, choropleths, clustering, and plugins work 100% natively on top of `L.maplibreGL`.
+* **RASTER BASEMAPS ONLY WHEN SPECIFIC (`L.tileLayer`):** Use raster tiles (`L.tileLayer`) **ONLY IF** the user specifically and explicitly requests raster XYZ tiles (e.g. non-WebGL environments, legacy browser constraints), or when displaying satellite imagery (`satellite-v4`).
 
 ---
 
@@ -61,40 +64,42 @@ Follow these rules on every Leaflet code generation to prevent bugs:
   }, []);
   ```
 
-### 4. 🎨 Vector Tiles in Leaflet
-* For crisp, zoom-independent vector tiles in Leaflet, use `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with standard vector style JSON (`streets-v4`):
+### 4. 🎨 Vector Tiles by Default (`L.maplibreGL`)
+* Always use `@maplibre/maplibre-gl-leaflet` (`L.maplibreGL`) with standard vector style JSON (`streets-v4`) as the default basemap:
+  ```html
+  <!-- Leaflet Core -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- MapLibre GL JS & MapLibre Leaflet Plugin (Required for Vector Tiles) -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.0.22/leaflet-maplibre-gl.js"></script>
+  ```
   ```javascript
+  const map = L.map('map').setView([50.0755, 14.4378], 13);
+
+  // Vector Basemap (Default Standard)
   L.maplibreGL({
-    style: "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY"
+    style: 'https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY'
   }).addTo(map);
   ```
 
-### 5. 🖼️ High-DPI Raster Tiles & Tile URL Rules
-* **512px is the Default on MapTiler Cloud:**
-  * **512px Standard:** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-  * **512px Retina (@2x):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
-  * ⚠️ **CRITICAL GOTCHA: NEVER use `/512/` in the URL path** — `.../maps/streets-v4/512/...` is **INVALID** and returns HTTP errors. 512px tiles have no size prefix in their path.
-  * **256px Legacy Tiles:** Only 256px tiles require an explicit size path: `.../maps/streets-v4/256/{z}/{x}/{y}.png` (or `@2x.png`).
-* In Leaflet, when loading 512px tiles, configure `tileSize: 512` and `zoomOffset: -1` so Leaflet's tile math aligns with 512px bounds:
+### 5. 🖼️ Raster Tiles Fallback (ONLY When Specifically Requested or Satellite)
+* Use `L.tileLayer` only when the user explicitly specifies raster tiles, legacy non-WebGL requirements, or satellite imagery (`satellite-v4`):
   ```javascript
-  // 512px Standard
-  L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
+  // Satellite Imagery or Explicit Raster Request
+  L.tileLayer("https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR_API_KEY", {
     tileSize: 512,
     zoomOffset: -1,
     minZoom: 1,
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>',
-    crossOrigin: true
-  }).addTo(map);
-
-  // 512px Retina (@2x)
-  L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY", {
-    tileSize: 512,
-    zoomOffset: -1,
-    minZoom: 1,
+    maxZoom: 19,
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>',
     crossOrigin: true
   }).addTo(map);
   ```
+* ⚠️ **CRITICAL GOTCHA: NEVER use `/512/` in the raster URL path** — `.../maps/streets-v4/512/...` is **INVALID** on MapTiler Cloud. 512px tiles have no size prefix in their path.
+
 
 ---
 
@@ -155,7 +160,7 @@ Deep architectural and schema reference files live under `references/` and shoul
 
 ## 🗺️ Quickstart Patterns
 
-### Option A: Vector Tiles in Leaflet (Recommended)
+### Standard: Vector Basemap via `L.maplibreGL` (Default)
 
 ```javascript
 import L from "leaflet";
@@ -167,18 +172,19 @@ const map = L.map("map", {
   zoom: 13
 });
 
+// Crisp, zoom-independent vector basemap
 L.maplibreGL({
   style: "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY"
 }).addTo(map);
 
-// Add a marker with popup
+// Add standard Leaflet marker with popup
 const marker = L.marker([50.0755, 14.4378])
   .addTo(map)
   .bindPopup("<b>Prague</b><br>Czech Republic")
   .openPopup();
 ```
 
-### Option B: High-DPI Raster Tiles
+### Fallback: Raster Tiles via `L.tileLayer` (Only when specifically requested or for Satellite)
 
 ```javascript
 import L from "leaflet";
@@ -186,11 +192,12 @@ import "leaflet/dist/leaflet.css";
 
 const map = L.map("map").setView([50.0755, 14.4378], 13); // [lat, lng]
 
-L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
+// Use only if user explicitly requests raster or for satellite-v4
+L.tileLayer("https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR_API_KEY", {
   tileSize: 512,
   zoomOffset: -1,
   minZoom: 1,
-  maxZoom: 20,
+  maxZoom: 19,
   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
   crossOrigin: true
 }).addTo(map);
