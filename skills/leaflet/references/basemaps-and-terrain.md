@@ -38,12 +38,23 @@ L.maplibreGL({
 
 ---
 
-## 2. High-DPI Raster Tiles (512×512)
+## 2. High-DPI Raster Tiles (512×512 Default)
 
 Standard Leaflet raster tile implementation using `L.tileLayer`. When loading 512px tiles in Leaflet, always set `tileSize: 512` and `zoomOffset: -1` to align zoom calculations:
 
 ```javascript
+// Standard 512px raster tiles
 L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
+  tileSize: 512,
+  zoomOffset: -1,
+  minZoom: 1,
+  maxZoom: 22,
+  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+  crossOrigin: true
+}).addTo(map);
+
+// Crisp High-DPI Retina 512px raster tiles (@2x)
+L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY", {
   tileSize: 512,
   zoomOffset: -1,
   minZoom: 1,
@@ -53,16 +64,35 @@ L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_A
 }).addTo(map);
 ```
 
+### Raster Tile URL Structure & Resolution Rules:
+
+| Tile Format | URL Pattern | Tile Size | Leaflet `tileSize` | Leaflet `zoomOffset` |
+| :--- | :--- | :--- | :--- | :--- |
+| **512px Standard (Default)** | `https://api.maptiler.com/maps/{style}/{z}/{x}/{y}.png?key=KEY` | 512×512 | `512` | `-1` |
+| **512px Retina (@2x)** | `https://api.maptiler.com/maps/{style}/{z}/{x}/{y}@2x.png?key=KEY` | 1024×1024 (@2x) | `512` | `-1` |
+| **256px Standard (Legacy)** | `https://api.maptiler.com/maps/{style}/256/{z}/{x}/{y}.png?key=KEY` | 256×256 | `256` | `0` |
+| **256px Retina (@2x)** | `https://api.maptiler.com/maps/{style}/256/{z}/{x}/{y}@2x.png?key=KEY` | 512×512 (@2x) | `256` | `0` |
+
+> ⚠️ **CRITICAL GOTCHA: `/512/` is NOT a valid URL path**
+> * MapTiler Cloud serves 512px tiles as its standard native resolution. There is **NO `/512/` path prefix**!
+> * ❌ **INVALID:** `https://api.maptiler.com/maps/streets-v4/512/{z}/{x}/{y}@2x.png?key=KEY` (fails with HTTP error)
+> * ✅ **VALID (512px):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=KEY` (retina) or `.../{z}/{x}/{y}.png?key=KEY` (normal)
+> * ✅ **VALID (256px):** `https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}@2x.png?key=KEY` (only 256px requires explicit `/256/` prefix)
+
 ### High-DPI Raster Endpoints:
 
-* **Streets v4 (PNG):**
-  `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-* **Satellite v4 (JPG):**
-  `https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR_API_KEY`
-* **Outdoor v4 (PNG):**
-  `https://api.maptiler.com/maps/outdoor-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
-* **Dataviz v4 Dark (PNG):**
-  `https://api.maptiler.com/maps/dataviz-v4-dark/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+* **Streets v4:**
+  - Standard (512px): `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+  - Retina (512px @2x): `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+* **Satellite v4:**
+  - Standard (512px): `https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}.jpg?key=YOUR_API_KEY`
+  - Retina (512px @2x): `https://api.maptiler.com/maps/satellite-v4/{z}/{x}/{y}@2x.jpg?key=YOUR_API_KEY`
+* **Outdoor v4:**
+  - Standard (512px): `https://api.maptiler.com/maps/outdoor-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+  - Retina (512px @2x): `https://api.maptiler.com/maps/outdoor-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+* **Dataviz v4 Dark:**
+  - Standard (512px): `https://api.maptiler.com/maps/dataviz-v4-dark/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+  - Retina (512px @2x): `https://api.maptiler.com/maps/dataviz-v4-dark/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
 
 ---
 

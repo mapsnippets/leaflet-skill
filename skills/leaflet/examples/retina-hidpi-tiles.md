@@ -25,10 +25,10 @@ Configures crisp high-resolution `@2x` Retina raster tiles in Leaflet with `dete
 
     const map = L.map('map').setView([47.3769, 8.5417], 14); // Zurich
 
-    L.tileLayer(`https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}@2x.png?key=${MAPTILER_KEY}`, {
+    // MapTiler 512px default raster tiles with Retina @2x resolution (no /512/ path prefix!)
+    L.tileLayer(`https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=${MAPTILER_KEY}`, {
       tileSize: 512,
       zoomOffset: -1,
-      detectRetina: true,
       maxZoom: 19,
       attribution: '&copy; MapTiler &copy; OpenStreetMap'
     }).addTo(map);
@@ -37,7 +37,9 @@ Configures crisp high-resolution `@2x` Retina raster tiles in Leaflet with `dete
 </html>
 ```
 
-## Key API Features
-- Native Leaflet API implementation.
-- Modern MapTiler Planet v4 raster tiles.
-- Clean and lightweight dependencies.
+## Key API Features & Tile URL Invariants
+- **512px Standard Resolution (Default):** MapTiler Cloud serves 512px tiles by default. Never use `/512/` in the URL path.
+  - Standard 512px: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=KEY`
+  - High-DPI Retina 512px: `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=KEY`
+- **Legacy 256px Tiles:** Only legacy 256px tiles include a size prefix: `https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}.png?key=KEY` (or `@2x.png`).
+- **Leaflet Coordinate Alignment:** Configure `tileSize: 512` and `zoomOffset: -1` in Leaflet options to keep zoom math aligned.

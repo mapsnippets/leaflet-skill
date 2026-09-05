@@ -69,10 +69,25 @@ Follow these rules on every Leaflet code generation to prevent bugs:
   }).addTo(map);
   ```
 
-### 5. 🖼️ High-DPI Raster Tiles
-* When using raster tile layers with 512px tiles, configure `tileSize: 512` and `zoomOffset: -1` to align zoom calculations:
+### 5. 🖼️ High-DPI Raster Tiles & Tile URL Rules
+* **512px is the Default on MapTiler Cloud:**
+  * **512px Standard:** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+  * **512px Retina (@2x):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+  * ⚠️ **CRITICAL GOTCHA: NEVER use `/512/` in the URL path** — `.../maps/streets-v4/512/...` is **INVALID** and returns HTTP errors. 512px tiles have no size prefix in their path.
+  * **256px Legacy Tiles:** Only 256px tiles require an explicit size path: `.../maps/streets-v4/256/{z}/{x}/{y}.png` (or `@2x.png`).
+* In Leaflet, when loading 512px tiles, configure `tileSize: 512` and `zoomOffset: -1` so Leaflet's tile math aligns with 512px bounds:
   ```javascript
+  // 512px Standard
   L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OSM</a>',
+    crossOrigin: true
+  }).addTo(map);
+
+  // 512px Retina (@2x)
+  L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY", {
     tileSize: 512,
     zoomOffset: -1,
     minZoom: 1,

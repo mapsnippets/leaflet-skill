@@ -92,10 +92,15 @@ npm install -D @types/leaflet@1.9.14
 ## 3. MapTiler Planet v4 Basemap Registry
 
 ### Standard Raster XYZ Configuration:
-MapTiler raster tiles are delivered at high-resolution 512x512 pixels. In Leaflet, always configure `tileSize: 512` and `zoomOffset: -1` for crisp, correctly scaled tiles:
+MapTiler raster tiles are delivered at high-resolution 512x512 pixels by default. In Leaflet, always configure `tileSize: 512` and `zoomOffset: -1` for crisp, correctly scaled tiles.
+
+* **512px Standard (Default):** `https://api.maptiler.com/maps/<style-id>/{z}/{x}/{y}.png?key=YOUR_API_KEY`
+* **512px Retina (@2x):** `https://api.maptiler.com/maps/<style-id>/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY`
+* ⚠️ **Do NOT include `/512/` in the URL** (e.g. `.../<style-id>/512/...` is invalid). Only 256px legacy tiles use `/256/`.
 
 ```javascript
-L.tileLayer('https://api.maptiler.com/maps/<style-id>/{z}/{x}/{y}.png?key=YOUR_API_KEY', {
+// High-DPI 512px raster tiles
+L.tileLayer('https://api.maptiler.com/maps/<style-id>/{z}/{x}/{y}@2x.png?key=YOUR_API_KEY', {
   tileSize: 512,
   zoomOffset: -1,
   minZoom: 1,

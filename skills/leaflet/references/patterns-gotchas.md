@@ -102,15 +102,28 @@ onUnmounted(() => {
 
 ---
 
-## 6. Blurry 512px High-DPI Tiles
+## 6. Invalid `/512/` Path in Tile URLs & Blurry 512px High-DPI Tiles
 
-* **Problem:** MapTiler raster tiles are 512×512 high-resolution tiles. Using default Leaflet `tileSize: 256` stretches and blurs the tiles, doubling perceived pixel size.
-* **Fix:** Always specify `tileSize: 512` and `zoomOffset: -1`:
+* **Problem A (Invalid `/512/` Path):** Adding `/512/` into the URL (e.g. `https://api.maptiler.com/maps/streets-v4/512/{z}/{x}/{y}@2x.png`) fails with HTTP error! 512px is the **native default** on MapTiler Cloud, so there is **no `/512/` path prefix**.
+  * ❌ **INVALID:** `https://api.maptiler.com/maps/streets-v4/512/{z}/{x}/{y}@2x.png?key=KEY`
+  * ✅ **VALID (512px Default):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=KEY`
+  * ✅ **VALID (512px Retina @2x):** `https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=KEY`
+  * ✅ **VALID (256px Legacy):** `https://api.maptiler.com/maps/streets-v4/256/{z}/{x}/{y}.png?key=KEY` (only 256px requires explicit `/256/` prefix)
+* **Problem B (Blurry 512px Tiles in Leaflet):** MapTiler raster tiles are 512×512 high-resolution tiles. Using default Leaflet `tileSize: 256` stretches and blurs the tiles, doubling perceived pixel size.
+* **Fix:** In Leaflet's `L.tileLayer` options, always specify `tileSize: 512` and `zoomOffset: -1`:
 ```javascript
+// High-resolution 512px standard tiles
 L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=KEY', {
   tileSize: 512,
   zoomOffset: -1,
-  detectRetina: false // Crucial: prevent double retina scaling
+  attribution: '&copy; MapTiler &copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Crisp High-DPI Retina 512px tiles (@2x)
+L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=KEY', {
+  tileSize: 512,
+  zoomOffset: -1,
+  attribution: '&copy; MapTiler &copy; OpenStreetMap contributors'
 }).addTo(map);
 ```
 
