@@ -34,6 +34,21 @@ Maintained by **[MapSnippets](https://mapsnippets.org/)** — Open-source geospa
 
 ---
 
+## 🧭 How to Use This Skill — Mandatory Agent Workflow
+
+When building, modifying, or debugging any Leaflet map, **NEVER guess API parameters, hallucinate plugins, or rely on outdated pre-trained memory**. Always look for the verified, canonical patterns within this skill:
+
+1. **Look Up Verified Task Recipes First (`examples/`):**
+   - Consult **[`examples/INDEX.md`](examples/INDEX.md)** to locate the exact runnable recipe matching your task (e.g. clustering, choropleth, radar markers, side-by-side, geodesic measurement).
+   - Read the corresponding recipe file before generating code. Every recipe provides clean, self-contained HTML/CSS/JS with zero boilerplate errors.
+2. **Look Up Declarative Specifications & API Contracts (`references/`):**
+   - Consult **[`references/INDEX.md`](references/INDEX.md)** for exact method signatures, pane z-indices, event listeners, and plugin integration patterns.
+   - For troubleshooting, always check **[`references/patterns-gotchas.md`](references/patterns-gotchas.md)** to avoid common pitfalls (`[lat, lng]` coordinate inversion, missing CSS height, pane stacking bugs, or popup flickering).
+3. **Adhere to Core Design Contracts:**
+   - Follow the foundational contracts below for lifecycle, vector basemaps by default, coordinate ordering, and map panes.
+
+---
+
 ## 📐 Core Structural Design Contracts
 
 ### 1. Universal Map Lifecycle & Initialization Contract
