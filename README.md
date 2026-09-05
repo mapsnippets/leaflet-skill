@@ -38,11 +38,14 @@ When activated for **Leaflet**, this skill guides the agent to:
 
 This skill follows the **[Agent Skills open format](https://agentskills.io/)**, utilizing a **three-tier progressive disclosure model** to minimize context overhead:
 
-```text
-┌────────────────────────┐         Match Query         ┌────────────────────────┐         As Needed          ┌───────────────────────────────────┐
-│ 1. Discovery (Startup) │ ──────────────────────────> │ 2. Activation (Load)   │ ─────────────────────────> │ 3. Execution (Deep Dive)          │
-│    name & description  │                             │    SKILL.md router     │                            │    Modular References & Recipes   │
-└────────────────────────┘                             └────────────────────────┘                            └───────────────────────────────────┘
+```mermaid
+flowchart LR
+    A["1. Discovery (Startup)<br/>name & description (~50 tokens)"]
+    B["2. Activation (Load)<br/>SKILL.md router (under 5k tokens)"]
+    C["3. Execution (Deep Dive)<br/>Modular References & Recipes"]
+
+    A -->|Match Query| B
+    B -->|As Needed| C
 ```
 
 1. **Discovery (Startup)**: The agent only inspects the YAML frontmatter `name` and `description` (~50 tokens).
@@ -113,16 +116,16 @@ mapsnippets/leaflet-skill/
 │   └── plugin.json         — Claude Code plugin manifest & metadata
 ├── skills/
 │   └── leaflet/
-│       ├── SKILL.md        — Entry point prompt & progressive disclosure router (< 200 lines)
+│       ├── SKILL.md        — Entry point prompt & router (< 200 lines)
 │       ├── evals/
-│       │   └── evals.json  — Machine-readable evaluation benchmarks (5 core test cases)
-│       ├── examples/       — 29 standalone runnable recipes (HTML/CSS/JS)
-│       │   ├── INDEX.md    — Curated categorized catalog of all recipes
-│       │   └── ...         — Vector tiles, marker clustering, GeoJSON, WMS, Geoman
-│       └── references/     — 20 deep technical reference guides & API specifications
+│       │   └── evals.json  — Machine-readable evaluation benchmarks
+│       ├── examples/       — 29 standalone runnable recipes
+│       │   ├── INDEX.md    — Curated catalog of all recipes
+│       │   └── ...         — Vector tiles, clustering, GeoJSON, WMS
+│       └── references/     — 21 deep technical reference guides & APIs
 │           ├── INDEX.md    — Searchable index of references
-│           ├── versions.md — Single source of truth for library releases & styles
-│           └── ...         — coordinate conventions, panes, clustering, vector plugins
+│           ├── versions.md — Release matrix & style endpoints
+│           └── ...         — Coordinate conventions, panes, plugins
 ├── README.md               — Project documentation & setup guide
 └── LICENSE.md              — MIT License
 ```
@@ -138,7 +141,8 @@ import L from "leaflet";
 import "@maplibre/maplibre-gl-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const map = L.map("map").setView([50.0755, 14.4378], 13); // [latitude, longitude]
+// Center coordinates format: [latitude, longitude]
+const map = L.map("map").setView([50.0755, 14.4378], 13);
 
 L.maplibreGL({
   style: "https://api.maptiler.com/maps/streets-v4/style.json?key=YOUR_API_KEY"
@@ -153,16 +157,25 @@ L.maplibreGL({
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-const map = L.map("map").setView([50.0755, 14.4378], 13); // [latitude, longitude]
+// Center coordinates format: [latitude, longitude]
+const map = L.map("map").setView([50.0755, 14.4378], 13);
 
-L.tileLayer("https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=YOUR_API_KEY", {
-  tileSize: 512,
-  zoomOffset: -1,
-  minZoom: 1,
-  maxZoom: 19,
-  attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-  crossOrigin: true
-}).addTo(map);
+L.tileLayer(
+  "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=" +
+    "YOUR_API_KEY",
+  {
+    tileSize: 512,
+    zoomOffset: -1,
+    minZoom: 1,
+    maxZoom: 19,
+    attribution:
+      '<a href="https://www.maptiler.com/copyright/" ' +
+      'target="_blank">&copy; MapTiler</a> ' +
+      '<a href="https://www.openstreetmap.org/copyright" ' +
+      'target="_blank">&copy; OpenStreetMap contributors</a>',
+    crossOrigin: true
+  }
+).addTo(map);
 ```
 
 <br>
